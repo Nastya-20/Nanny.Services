@@ -1,0 +1,88 @@
+.headerContainer{
+    width: 300px;
+    height: 48px;
+    padding: 20px;
+    background-color: #F03F3B;
+    margin: 0 auto;
+    border-radius: 30px;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navTitle {
+    width: 154px;
+    height: 20px;
+    text-decoration: none;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 117%;
+    letter-spacing: -0.02em;
+    color: #fbfbfb;
+}
+.navigation{
+    display: none;
+}
+
+.openMenuBtn {
+    padding: 0;
+    line-height: 0;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+.openMenuIcons{
+    stroke: #fbfbfb;
+}
+
+ .divider {
+    width: 260px;
+} 
+
+@media screen and (min-width: 375px) {
+    .headerContainer {
+       min-width: 375px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .headerContainer {
+        min-width: 768px;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .headerContainer {
+        background-color: transparent;
+        position: absolute;
+        top: 52px;
+        right: 0;
+        left: 0;
+        width: 1184px;
+        height: 48px;
+        z-index: 1000;
+        border-radius: 30px;
+    }
+
+    .navigation {
+        text-decoration: none;
+        display: flex;
+    }
+
+    .openMenuIcons {
+        display: none;
+    }
+
+    .navTitle {
+        width: 164px;
+        height: 28px;
+        font-size: 24px;
+    }
+
+    .nav {
+        text-decoration: none;
+    }
+
+}

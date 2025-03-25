@@ -1,0 +1,184 @@
+.container {
+    width: 300px;
+    height: 646px;
+    background-color: #F03F3B;
+    border-radius: 30px;
+    position: absolute;
+    margin: 0 auto;
+}
+
+.homeTitle {
+    height: 288px;
+    padding: 0 15px;
+}
+
+.homeName {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #fbfbfb;
+    margin-bottom: 20px;
+}
+
+.homeText {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 105%;
+    letter-spacing: -0.02em;
+    color: #fbfbfb;
+    margin-bottom: 25px;
+}
+
+.homeBtn {
+    border: 1px solid rgba(251, 251, 251, 0.4);
+    border-radius: 30px;
+    padding: 12px 30px;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #fbfbfb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    position: relative;
+}
+
+.defaultIcon {
+    display: block;
+    width: 15px;
+    height: 17px;
+    fill: #fbfbfb;
+}
+
+/* Друга іконка прихована */
+.hoverIcon {
+    display: none;
+    width: 20px;
+    height: 16px;
+    fill: #fbfbfb;
+}
+
+/* При наведенні або фокусі змінюємо іконку */
+.homeBtn:hover .defaultIcon,
+.homeBtn:focus .defaultIcon {
+    display: none;
+}
+
+.homeBtn:hover .hoverIcon,
+.homeBtn:focus .hoverIcon {
+    display: block;
+}
+
+.homeImg {
+    width: 300px;
+    height: 368px;
+    border-radius: 0 0 30px 30px;
+}
+
+@media screen and (min-width: 375px) {
+    .container {
+        min-width: 375px;
+    }
+
+    .homeTitle {
+        height: 250px;
+    }
+
+    .homeImg {
+        width: 375px;
+        height: 468px;
+        border-radius: 0 0 30px 30px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        min-width: 768px;
+        height: 646px;
+        border-radius: 30px;
+    }
+
+    .homeImg {
+        width: 768px;
+        height: 468px;
+        border-radius: 30px;
+    }
+
+    .homeTitle {
+        height: 178px;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        position: relative;
+        width: 1376px;
+        height: 736px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 64px;
+        margin: 0 auto;
+        border-radius: 30px;
+    }
+
+    .homeTitle {
+        width: 517px;
+        height: 322px;
+        margin: 163px 0 163px 96px;
+    }
+
+    .homeName {
+        width: 517px;
+        font-weight: 500;
+        font-size: 70px;
+        line-height: 100%;
+        letter-spacing: -0.03em;
+        color: #fbfbfb;
+        margin-bottom: 28px;
+    }
+
+    .homeText {
+        font-family: "Helvetica Neue", sans-serif;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 107%;
+        letter-spacing: -0.02em;
+        color: #fbfbfb;
+        margin-bottom: 64px;
+    }
+
+    .homeBtn {
+        padding: 18px 45px;
+        width: 230px;
+        height: 60px;
+    }
+
+    .homeImg {
+        border-radius: 0 30px 30px 0;
+        width: 699px;
+        height: 736px;
+        position: relative;
+        background: no-repeat center/cover;
+    }
+
+
+    .divider {
+        position: absolute;
+        top: 88px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: rgba(251, 251, 25, 0.4);
+    }
+}

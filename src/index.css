@@ -1,36 +1,25 @@
 :root {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #121417;
-  background-color: #fff;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --font-family: "Helvetica Neue", Roboto, sans-serif;
+    --line-height: 1.5;
+    --font-weight: 400;
+    --color: #11101c;
+    --background-color: #fbfbfb;
 }
 
 *,
 ::before,
 ::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   box-sizing: border-box;
   font-family: sans-serif;
   line-height: 1.5;
-  width: 1440px;
-  min-height: 768px;
-  margin: 0 auto;
 }
 
-.container{
-   width: 1440px;
-   width: 768px;
-   width: 375px;
-}
 
 h1,
 h2,
@@ -40,6 +29,7 @@ h5,
 h6,
 p {
   margin: 0;
+  font-weight: 500;
 }
 
 ul,
@@ -47,6 +37,12 @@ ol {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color: #fbfbfb;
+  cursor: pointer;
 }
 
 img {
