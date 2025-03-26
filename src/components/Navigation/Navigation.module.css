@@ -1,15 +1,14 @@
 .headerContainer{
-    width: 300px;
-    height: 48px;
     padding: 20px;
     background-color: #F03F3B;
     margin: 0 auto;
-    border-radius: 30px;
+    border-radius: 30px 30px 0 0;
 }
 .nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 88px;
 }
 
 .navTitle {
@@ -17,10 +16,10 @@
     height: 20px;
     text-decoration: none;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 18px;
-    line-height: 117%;
-    letter-spacing: -0.02em;
+    line-height: 112%;
+    letter-spacing: 0.01em;
     color: #fbfbfb;
 }
 .navigation{
@@ -37,39 +36,78 @@
 .openMenuIcons{
     stroke: #fbfbfb;
 }
-
- .divider {
-    width: 260px;
-} 
-
 @media screen and (min-width: 375px) {
-    .headerContainer {
-       min-width: 375px;
+    .nav {
+        gap: 125px;
     }
 }
 
 @media screen and (min-width: 768px) {
     .headerContainer {
-        min-width: 768px;
+        padding: 20px;
     }
+
+    .nav {
+        gap: 500px;
+    }
+
 }
+
+
 @media screen and (min-width: 1440px) {
     .headerContainer {
-        background-color: transparent;
-        position: absolute;
-        top: 52px;
-        right: 0;
-        left: 0;
-        width: 1184px;
-        height: 48px;
-        z-index: 1000;
-        border-radius: 30px;
+            background-color: transparent;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1184px;
+            height: 48px;
+            z-index: 1000;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            /* Центруємо */
+            align-items: center;
+        }
+    .nav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
     }
 
     .navigation {
-        text-decoration: none;
+        width: 533px;
         display: flex;
+        align-items: center;
+        gap: 40px;
     }
+
+     .active {
+        font-family: "Helvetica Neue", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 125%;
+        letter-spacing: -0.01em;
+        color: #fbfbfb;
+        position: relative;
+     }
+         .active::after {
+             content: "";
+             position: absolute;
+             bottom: -10px;
+             /* Розміщуємо під текстом */
+             left: 50%;
+             transform: translateX(-50%);
+             width: 8px;
+             height: 8px;
+             background-color: #fbfbfb;
+             /* Колір точки */
+             border-radius: 50%;
+         }
 
     .openMenuIcons {
         display: none;
@@ -80,9 +118,4 @@
         height: 28px;
         font-size: 24px;
     }
-
-    .nav {
-        text-decoration: none;
-    }
-
 }

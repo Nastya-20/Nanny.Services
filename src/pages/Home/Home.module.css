@@ -1,15 +1,13 @@
 .container {
-    width: 300px;
-    height: 646px;
+    height: 456px;
     background-color: #F03F3B;
-    border-radius: 30px;
-    position: absolute;
+    border-radius: 0 0 30px 30px;
     margin: 0 auto;
 }
 
 .homeTitle {
     height: 288px;
-    padding: 0 15px;
+    padding: 25px 15px 0 15px;
 }
 
 .homeName {
@@ -19,7 +17,7 @@
     line-height: 100%;
     letter-spacing: -0.03em;
     color: #fbfbfb;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .homeText {
@@ -29,7 +27,7 @@
     line-height: 105%;
     letter-spacing: -0.02em;
     color: #fbfbfb;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
 }
 
 .homeBtn {
@@ -79,42 +77,52 @@
 }
 
 .homeImg {
-    width: 300px;
-    height: 368px;
-    border-radius: 0 0 30px 30px;
+    border-radius:  0 0 30px 30px;
 }
 
+ .divider {
+     position: absolute;
+     top: 88px;
+     width: 280px;
+     height: 2px;
+     background-color: rgba(251, 251, 25, 0.4);
+ }
+
 @media screen and (min-width: 375px) {
-    .container {
-        min-width: 375px;
-    }
 
     .homeTitle {
-        height: 250px;
+        height: 290px;
+    }
+
+    .divider {
+        width: 335px;
     }
 
     .homeImg {
-        width: 375px;
-        height: 468px;
-        border-radius: 0 0 30px 30px;
+        height: 374px;
     }
 }
 
 @media screen and (min-width: 768px) {
-    .container {
-        min-width: 768px;
-        height: 646px;
-        border-radius: 30px;
-    }
 
     .homeImg {
-        width: 768px;
-        height: 468px;
-        border-radius: 30px;
+        height: 464px;
     }
 
     .homeTitle {
-        height: 178px;
+        height: 200px;
+
+    }
+        .homeName{
+        margin-bottom: 20px;
+        }
+                .homeText{
+                    margin-bottom: 20px;
+                }
+
+    .divider {
+        width: 704px;
+        top: 98px;
     }
 
 }
@@ -172,6 +180,47 @@
         background: no-repeat center/cover;
     }
 
+    .experienced {
+        position: absolute;
+        bottom: 60px;
+        right: 50px;
+        left: 75%;
+        display: flex;
+        gap: 16px;
+        padding: 32px;
+        width: 284px;
+        border-radius: 20px;
+        height: 118px;
+        background-color: #fbfbfb;
+    }
+
+    .check {
+        border-radius: 13px;
+        width: 54px;
+        height: 54px;
+        padding: 12px;
+        background-color: #F03F3B;
+    }
+
+    .checkIcon {
+        fill: #fbfbfb;
+        width: 30px;
+        height: 30px;
+    }
+
+    .textExperienced {
+        font-family: "Helvetica Neue", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: rgba(17, 16, 28, 0.5);
+    }
+
+.numberExperienced {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #11101c;
+}
 
     .divider {
         position: absolute;

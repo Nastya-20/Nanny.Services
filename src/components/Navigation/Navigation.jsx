@@ -22,8 +22,10 @@ export default function Navigation() {
                     <NavLink to="/favorites" className={({ isActive }) => isActive ? css.active : css.link}>
                         Favorites
                     </NavLink>
+                    <div>
+                        <UserMenu />
+                    </div>
                 </div>
-                 <UserMenu />
             </nav>
         </header>
     );

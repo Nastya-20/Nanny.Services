@@ -6,7 +6,7 @@ export default function NotFoundPage() {
     return (
         <div className={css.container}>
 
-            <Link to="/catalog" className={css.link}>
+            <Link to="/" className={css.link}>
                 Go back
             </Link>
         </div>

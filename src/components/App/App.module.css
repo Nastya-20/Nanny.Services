@@ -1,5 +1,6 @@
 .wrapper{
     width: 320px;
+    height: 736px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -7,6 +8,7 @@
 @media screen and (min-width: 375px) {
 .wrapper {
         width: 375px;
+        
     }
 }
 

@@ -14,6 +14,17 @@ export default function Home() {
                 </button>
                 </div>
             <img className={css.homeImg} src='/hero-bg-1x.jpg' />
+            <div className={css.experienced}>
+                <div className={css.check}>
+                <svg className={css.checkIcon} width="20" height="16">
+                    <use className={css.feCheck} href="/icons.svg#icon-fe_check"></use>
+                </svg>
+                </div>
+                <div className={css.info}>
+                <p className={css.textExperienced}>Experienced nannies</p>
+                <p className={css.numberExperienced}>15,000</p>
+                </div>
+            </div>
           <hr className={css.divider} />
         </div>
     );
