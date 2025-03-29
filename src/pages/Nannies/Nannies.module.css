@@ -1,0 +1,387 @@
+.wrapperNannies {
+    width: 1440px;
+    min-height: 1488px;
+    background: #F3F3F3;
+    padding: 64px 128px;
+    margin: 0 auto;
+}
+
+/* стилі для вибору елементів */
+.selectorNannies {
+    width: 226px;
+    height: 74px;
+    margin-bottom: 32px;
+}
+
+.filtersNannies {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    color: #8a8a89;
+    margin-bottom: 8px;
+}
+
+.selectItemFilter {
+    border: none;
+    border-radius: 14px;
+    padding: 6px 15px 6px 18px;
+    width: 226px;
+    height: 48px;
+    background: #f03f3b;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 111%;
+    color: #fbfbfb;
+}
+
+.selectItemFilter:hover,
+.selectItemFilter:focus {
+    outline: none;
+    background-color: #fff;
+    color: rgba(17, 16, 28, 0.3);
+}
+
+.selectItemFilter:active {
+    outline: none;
+    color: rgba(17, 16, 28, 0.3);
+}
+
+
+/* вибір ціни часу уроку */
+.priceTeachers {
+    width: 124px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    color: #8a8a89;
+}
+
+.selectItemPrice {
+    border: none;
+    border-radius: 14px;
+    padding: 14px 18px;
+    width: 124px;
+    height: 48px;
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 111%;
+    color: #121417;
+}
+
+.selectItemPrice:hover,
+.selectItemPrice:focus {
+    outline: none;
+}
+
+.selectItemPrice:active {
+    outline: none;
+}
+
+.price {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 111%;
+    color: rgba(18, 20, 23, 0.2);
+}
+
+/* деталі вчителя */
+
+.detailsNannies {
+    display: flex;
+    gap: 48px;
+    border-radius: 24px;
+    padding: 24px;
+    max-width: 1184px;
+    height: auto;
+    background-color: #fbfbfb;
+    margin-bottom: 32px;
+}
+
+.imgContainer {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: #fbfbfb;
+    border-radius: 30px;
+    border: 2px solid rgba(240, 63, 59, 0.2);
+}
+
+.imgNannies {
+    width: 96px;
+    height: 96px;
+    border-radius: 15px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.detailsItems {
+    display: flex;
+    align-items: center;
+    width: 968px;
+    height: 24px;
+    margin-bottom: 8px;
+}
+
+.detailsTitle {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #8a8a89;
+    margin-right: 449px;
+}
+
+.detailsLink {
+    display: flex;
+    gap: 16px;
+    min-width: 495px;
+    height: 24px;
+}
+
+.detailsText {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #11101c;
+}
+
+.iconStar {
+    width: 16px;
+    height: 16px;
+    fill: #FFC531;
+}
+
+.priceNumber {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #38cd3e;
+}
+
+.iconMap {
+    width: 16px;
+    height: 16px;
+    fill: #fafafa;
+    stroke: #11101c;
+}
+
+.iconHeart {
+    width: 26px;
+    height: 26px;
+    fill: #fafafa;
+    stroke: #11101c;
+}
+
+.heartActive {
+    fill: #f4c550;
+    stroke: #f4c550;
+}
+
+.line {
+    color: #d1d1c7;
+}
+
+.nameNanny {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    color: #11101c;
+    margin-bottom: 24px;
+}
+
+.infoNanny{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 8px;
+    margin-bottom: 24px;
+}
+.infoAge {
+    min-width: 88px;
+    border-radius: 24px;
+    padding: 8px 16px;
+    height: 40px;
+    background-color: #f3f3f3;
+}
+
+.info {
+    min-width: 88px;
+    border-radius: 24px;
+    height: 40px;
+    padding: 8px 16px;
+    background-color: #f3f3f3;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #11101C;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.lesson {
+    color: #8a8a89;
+}
+
+.infoConditions {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
+    margin-bottom: 16px;
+}
+
+.detail {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #8a8a89;
+
+}
+
+.readMore {
+    background-color: transparent;
+font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-decoration: underline;
+    color: #121417;
+    margin-bottom: 32px;
+}
+
+.levelLanguages {
+    display: flex;
+    gap: 8px;
+    background-color: #fff;
+    margin-bottom: 32px;
+}
+
+.levelAOne {
+    border-radius: 35px;
+    padding: 8px 12px;
+    width: 110px;
+    height: 32px;
+    background: #f4c550;
+font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 114%;
+    color: #121417;
+}
+
+.levelLang {
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    background-color: transparent;
+    border-radius: 35px;
+    padding: 8px 12px;
+    min-width: 110px;
+    height: 32px;
+font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 114%;
+    color: #121417;
+}
+
+.selected {
+    background-color: #f4c550;
+}
+
+/* Кнопка Read more */
+
+.aboutText {
+    max-width: 992px;
+    min-height: 40px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    color: rgba(17, 16, 28, 0.5);
+    margin-bottom: 14px;
+}
+
+.reviewsList {
+    width: 417px;
+    min-height: 200px;
+}
+
+.reviewItem {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.reviewReiting {
+    display: flex;
+    gap: 12px;
+}
+
+.imgReview {
+    border-radius: 100px;
+    width: 44px;
+    height: 44px;
+}
+
+.reviewName {
+font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #8a8a89;
+    margin-bottom: 5px;
+}
+
+.iconStar {
+    margin-right: 8px;
+}
+
+.reviewItemText {
+font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
+    margin-bottom: 32px;
+}
+
+.openModalBtn {
+    border-radius: 12px;
+    padding: 16px 48px;
+    width: 232px;
+    height: 60px;
+    background: #f4c550;
+font-family: "Helvetica Neue", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #121417;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.openModalBtn:hover,
+.openModalBtn:focus {
+    background-color: #fbe9ba;
+}

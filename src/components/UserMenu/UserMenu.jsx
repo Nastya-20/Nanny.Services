@@ -33,7 +33,7 @@ export default function UserMenu() {
             await signInWithEmailAndPassword(auth, email, password);
             console.log("User logged in successfully");
 
-            navigate('/teachers');
+            navigate('/nannies');
             setIsRegisterOpen(false);
         } catch (error) {
             console.error("Registration error:", error);
@@ -53,7 +53,7 @@ export default function UserMenu() {
             // Перевірка, чи вже залогінений користувач
             const user = auth.currentUser;
             if (user) {
-                navigate('/teachers');
+                navigate('/nannies');
                 return;
             }
 
@@ -61,8 +61,8 @@ export default function UserMenu() {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             console.log("User logged in successfully:", userCredential.user);
 
-            // Перехід на сторінку викладачів
-            navigate('/teachers');
+            // Перехід на сторінку нянь
+            navigate('/nannies');
 
         } catch (error) {
             console.error("Login error:", error);
@@ -112,9 +112,14 @@ export default function UserMenu() {
             <nav className={css.userMenu}>
                 {user ? (
                     <div className={css.wrapper}>
-                        <p className={css.welcome}>Welcome, {user.email}!</p>
+                        <div className={css.userName}>
+                        <svg className={css.openMenuIcons} width="24" height="24">
+                            <use href="/icons.svg#icon-user"></use>
+                        </svg>
+                            <p className={css.welcome}>{user.email}!</p>
+                        </div>
                         <button className={css.logout} type="button" onClick={handleLogout}>
-                            Logout
+                            Log out
                         </button>
                     </div>
                 ) : (
@@ -132,10 +137,10 @@ export default function UserMenu() {
 
             {isLoginOpen && (
                 <AuthModal className={css.login} onClose={() => setIsLoginOpen(false)}>
-                    <h2 className={css.loginTitle}>Login</h2>
-                    <p className={css.loginText}>Welcome back!
-                        Please enter your credentials to access your
-                        account and continue your search for a teacher.</p>
+                    <h2 className={css.loginTitle}>Log In</h2>
+                    <p className={css.loginText}>
+                        Welcome back! Please enter your credentials
+                        to access your account and continue your babysitter search.</p>
                     {error && <p className={css.errorText}>{error}</p>}
                     <LoginForm onSubmit={handleLogin} onClose={() => setIsLoginOpen(false)} onSwitchToLogin={setIsRegisterOpen} />
                 </AuthModal>

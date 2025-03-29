@@ -1,0 +1,32 @@
+.showMoreButton {
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    border: none;
+    padding: 14px 40px;
+    width: 159px;
+    height: 48px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.01em;
+    color: #fbfbfb;
+    cursor: pointer;
+    background-color: #F03F3B;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.showMoreButton:hover,
+.showMoreButton:focus {
+    color: #F03F3B;
+    background-color: #fbfbfb;
+    border: 1px solid #F03F3B;
+}
+
+.showMoreButton:active {
+    color: #F03F3B;
+    background-color: #fbfbfb;
+    border: 1px solid #F03F3B;
+}

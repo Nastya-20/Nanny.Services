@@ -71,7 +71,7 @@ const RegistrationForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
                     <use href={`/icons.svg#icon-eye${showPassword ? "" : "-off"}`} />
                 </svg>
             </div>
-            <button className={css.buttonForm} type="submit">Register</button>
+            <button className={css.buttonForm} type="submit">Sign Up</button>
         </form>
     );
 };

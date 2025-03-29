@@ -1,0 +1,155 @@
+.overlayContact {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContact {
+    background: #fbfbfb;
+    border-radius: 30px;
+    position: relative;
+    top: 50px;
+    width: 600px;
+    padding: 64px;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    font-size: 50px;
+    color: #11101C;
+    cursor: pointer;
+}
+
+.contactTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: #121417;
+    margin-bottom: 20px;
+}
+
+.contactText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 137%;
+    color: rgba(18, 20, 23, 0.8);
+    margin-bottom: 20px;
+}
+
+.infoNanny {
+    width: 139px;
+    height: 44px;
+    display: flex;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.imgNanny {
+    border-radius: 100px;
+    width: 44px;
+    height: 44px;
+}
+
+.nannyText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    color: #8a8a89;
+    margin-bottom: 4px;
+}
+
+.nannyName {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #11101C;
+}
+
+.select {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.selectItem {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 137%;
+    color: #11101C;
+}
+
+.input {
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    padding: 16px 18px 16px 18px;
+    width: 472px;
+    height: 54px;
+    margin-bottom: 18px;
+}
+
+input::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 137%;
+    color: #11101C;
+}
+
+input:hover,
+input:focus {
+    outline: none;
+}
+
+.buttonContact {
+    border-radius: 12px;
+    padding: 16px 215px;
+    width: 472px;
+    height: 60px;
+    background-color: #F03F3B;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #11101C;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.buttonContact:hover,
+.buttonContact:focus {
+    color: #F03F3B;
+    background-color: #fbfbfb;
+    border: 1px solid #F03F3B;
+}
+
+.buttonContact:active {
+    color: #F03F3B;
+    background-color: #fbfbfb;
+    border: 1px solid #F03F3B;
+}
+
+.error {
+    color: #e63232;
+    margin-bottom: 5px;
+}

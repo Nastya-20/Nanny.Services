@@ -61,26 +61,27 @@
 
 /* modal */
 .login {
-    width: 438px;
-    min-height: 126px;
+    border-radius: 30px;
+    width: 565px;
+    height: 489px;
 }
 
 .loginTitle {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 40px;
     line-height: 120%;
     letter-spacing: -0.02em;
-    color: #121417;
+    color: #11101c;
     margin-bottom: 20px;
 }
 
 .loginText {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 137%;
-    color: rgba(18, 20, 23, 0.8);
+    line-height: 125%;
+    color: rgba(17, 16, 28, 0.5);
     margin-bottom: 40px;
 }
 
@@ -90,21 +91,21 @@
 }
 
 .registrationTitle {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 40px;
     line-height: 120%;
     letter-spacing: -0.02em;
-    color: #121417;
+    color: #11101c;
     margin-bottom: 20px;
 }
 
 .registrationText {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 137%;
-    color: rgba(18, 20, 23, 0.8);
+    line-height: 125%;
+    color: rgba(17, 16, 28, 0.5);
     margin-bottom: 40px;
 }
 
@@ -114,7 +115,7 @@
 }
 
 .welcome {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
@@ -128,7 +129,7 @@
     width: 100px;
     height: 38px;
     background-color: #f4c550;
-    font-family: 'Roboto', sans-serif;
+font-family: "Helvetica Neue", sans-serif;
     font-weight: 700;
     font-size: 16px;
     line-height: 125%;

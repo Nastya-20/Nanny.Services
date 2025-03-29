@@ -46,21 +46,29 @@ form {
     width: 20px;
     height: 20px;
     stroke: #121417;
-    fill: #d3c46f;
+    fill: #fbfbfb;
 }
 
 .buttonForm {
-    border-radius: 12px;
-    padding: 16px 10px;
+    border-radius: 30px;
+    padding: 16px 19px;
     width: 438px;
-    height: 60px;
-    background-color: #f4c550;
+    height: 52px;
+    background-color: #f03f3b;
+    color: #fbfbfb;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.01em;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .buttonForm:hover,
 .buttonForm:focus {
-    background-color: #fbe9ba;
+    border: 1px solid #f03f3b;
+    background-color: #fbfbfb;
+    color: #f03f3b;
 }
 
 .errors {
@@ -69,11 +77,11 @@ form {
 }
 
 input::placeholder {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 137%;
-    color: #121417;
+    color: #1c1b2c;
 }
 
 input:hover,
