@@ -97,7 +97,7 @@
 
 .detailsNannies {
     display: flex;
-    gap: 48px;
+    gap: 24px;
     border-radius: 24px;
     padding: 24px;
     max-width: 1184px;
@@ -129,7 +129,8 @@
 .detailsItems {
     display: flex;
     align-items: center;
-    width: 968px;
+    justify-content: space-between;
+    min-width: 998px;
     height: 24px;
     margin-bottom: 8px;
 }
@@ -140,7 +141,6 @@
     font-size: 16px;
     line-height: 150%;
     color: #8a8a89;
-    margin-right: 449px;
 }
 
 .detailsLink {
@@ -213,13 +213,6 @@
     gap: 16px 8px;
     margin-bottom: 24px;
 }
-.infoAge {
-    min-width: 88px;
-    border-radius: 24px;
-    padding: 8px 16px;
-    height: 40px;
-    background-color: #f3f3f3;
-}
 
 .info {
     min-width: 88px;
@@ -238,16 +231,12 @@
     text-decoration: underline;
 }
 
-.lesson {
-    color: #8a8a89;
-}
-
 .infoConditions {
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
-    color: #121417;
+    color: #11101C;
     margin-bottom: 16px;
 }
 
@@ -260,56 +249,22 @@
 
 }
 
+/* Кнопка Read more */
+
 .readMore {
     background-color: transparent;
-font-family: "Helvetica Neue", sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
     text-decoration: underline;
-    color: #121417;
-    margin-bottom: 32px;
+    color: #11101c;
 }
 
-.levelLanguages {
-    display: flex;
-    gap: 8px;
-    background-color: #fff;
-    margin-bottom: 32px;
-}
-
-.levelAOne {
-    border-radius: 35px;
-    padding: 8px 12px;
-    width: 110px;
-    height: 32px;
-    background: #f4c550;
-font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 114%;
-    color: #121417;
-}
-
-.levelLang {
-    border: 1px solid rgba(18, 20, 23, 0.2);
-    background-color: transparent;
-    border-radius: 35px;
-    padding: 8px 12px;
-    min-width: 110px;
-    height: 32px;
-font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 114%;
-    color: #121417;
-}
 
 .selected {
     background-color: #f4c550;
 }
-
-/* Кнопка Read more */
 
 .aboutText {
     max-width: 992px;
@@ -323,34 +278,40 @@ font-family: "Helvetica Neue", sans-serif;
 }
 
 .reviewsList {
-    width: 417px;
-    min-height: 200px;
+width: 482px;
+    min-height: 80px;
 }
 
 .reviewItem {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 25px;
 }
 
-.reviewReiting {
+.reviewFirst {
     display: flex;
     gap: 12px;
 }
 
-.imgReview {
+.reviewerCircle {
     border-radius: 100px;
     width: 44px;
     height: 44px;
+    background: rgba(240, 63, 59, 0.2);
+    padding: 12px 14px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #f03f3b;
 }
 
 .reviewName {
-font-family: "Helvetica Neue", sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
-    color: #8a8a89;
+    color: #11101C;
     margin-bottom: 5px;
 }
 
@@ -359,29 +320,28 @@ font-family: "Helvetica Neue", sans-serif;
 }
 
 .reviewItemText {
-font-family: "Helvetica Neue", sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    color: rgba(17, 16, 28, 0.5);
+}
+.openModalBtn {
+    border-radius: 30px;
+    padding: 14px 28px;
+    width: 215px;
+    height: 48px;
+    background: #f03f3b;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 16px;
-    line-height: 150%;
-    color: #121417;
-    margin-bottom: 32px;
+    line-height: 125%;
+    letter-spacing: -0.01em;
+    color: #fbfbfb;
 }
-
-.openModalBtn {
-    border-radius: 12px;
-    padding: 16px 48px;
-    width: 232px;
-    height: 60px;
-    background: #f4c550;
-font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 156%;
-    color: #121417;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .openModalBtn:hover,
 .openModalBtn:focus {
-    background-color: #fbe9ba;
+    color: #F03F3B;
+    background-color: #fbfbfb;
+    border: 1px solid #F03F3B;
 }
