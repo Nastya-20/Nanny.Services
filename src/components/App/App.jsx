@@ -1,12 +1,13 @@
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Loader from '../Loader/Loader';
-import Home from '../../pages/Home/Home';
-import Nannies from '../../pages/Nannies/Nannies';
-import Favorites from '../../pages/Favorites/Favorites';
-import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 import Navigation from '../Navigation/Navigation';
 import { ToastContainer } from 'react-toastify';
+
+const Home = React.lazy(() => import('../../pages/Home/Home'));
+const Nannies = React.lazy(() => import('../../pages/Nannies/Nannies'));
+const Favorites = React.lazy(() => import('../../pages/Favorites/Favorites'));
+const NotFoundPage = React.lazy(() => import('../../pages/NotFoundPage/NotFoundPage'));
 
 
 export default function App() {
