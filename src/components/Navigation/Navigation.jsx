@@ -28,7 +28,7 @@ export default function Navigation() {
                         Favorites
                     </NavLink> 
  
-                        <UserMenu />
+                     <UserMenu />
    
                 </div>
             </nav>

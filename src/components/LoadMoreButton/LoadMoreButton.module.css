@@ -18,15 +18,9 @@
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.showMoreButton:hover,
-.showMoreButton:focus {
+.showMoreButton:hover {
     color: #F03F3B;
     background-color: #fbfbfb;
     border: 1px solid #F03F3B;
 }
 
-.showMoreButton:active {
-    color: #F03F3B;
-    background-color: #fbfbfb;
-    border: 1px solid #F03F3B;
-}

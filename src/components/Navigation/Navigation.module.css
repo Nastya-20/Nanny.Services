@@ -52,19 +52,19 @@
 
 /* ---- Media Queries ---- */
 @media screen and (min-width: 375px) {
-    .nav {
+    /* .nav {
         gap: 125px;
-    }
+    } */
 }
 
 @media screen and (min-width: 768px) {
     .headerContainer {
         padding: 20px;
     }
-
+/* 
     .nav {
         gap: 500px;
-    }
+    } */
 }
 
 @media screen and (min-width: 1440px) {
@@ -100,7 +100,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 0;
     }
 
     .navigation {

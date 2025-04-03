@@ -3,6 +3,8 @@ import { db, auth } from "../../firebase";
 import { collection, getDocs, doc, updateDoc, arrayUnion, arrayRemove, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import ContactForm from "../../components/ContactForm/ContactForm";
+import { differenceInYears, parseISO } from 'date-fns';
+import { ToastContainer, toast } from 'react-toastify';
 import LoadMoreButton from "../../components/LoadMoreButton/LoadMoreButton";
 import Loader from "../../components/Loader/Loader";
 import css from "./Favorites.module.css";
@@ -144,103 +146,116 @@ export default function Favorites() {
 
             {!loading && !error && favoriteNannies.length === 0 && <Loader><p>No favorite nannies yet.</p></Loader>}
 
-            {!loading && !error && favoriteNannies.slice(0, visibleCount).map((nanny) => (
-                <div key={nanny.id} className={css.detailsNannies}>
-                    <div className={css.imgContainer}>
-                        <img className={css.imgNannies} width="96" height="96" src={nanny.avatar_url} alt={nanny.name} />
-                    </div>
-                    <div>
-                        <div className={css.detailsItems}>
-                            <h3 className={css.detailsTitle}>Nanny</h3>
-                            <ul className={css.detailsLink}>
-                                <li className={css.detailsText}>
-                                    <svg className={css.iconBook} aria-hidden="true" width="32" height="32">
-                                        <use href="/icons.svg#icon-map" />
-                                    </svg>{nanny.location}
-                                </li>
-                                <span className={css.line}>|</span>
-                               
-                                <li className={css.detailsText}>
-                                    <svg className={css.iconStar} aria-hidden="true" width="16" height="16">
-                                        <use href="/icons.svg#icon-star" />
-                                    </svg>
-                                    Rating:&nbsp;{nanny.rating}
-                                </li>
-                                <span className={css.line}>|</span>
-                                <li className={css.detailsText}>
-                                    Price&nbsp;/&nbsp;1&nbsp;hour:&nbsp;<span className={css.priceNumber}>{nanny.price_per_hour}$</span>
-                                </li>
-                            </ul>
-                            {/* Heart icon for adding/removing favorite */}
-                            <svg
-                                onClick={() => {
-                                    toggleFavorite(nanny.id);
-                                    console.log(`Favorite status of teacher ${nanny.id}:`, favorites.includes(nanny.id));
-                                }}
-                                className={favorites.includes(nanny.id) ? css.iconHeartActive : css.iconHeart}
-                                aria-hidden="true"
-                                width="26"
-                                height="26"
-                            >
-                                <use href="/icons.svg#icon-heart" />
-                            </svg>
+            {!loading && !error && favoriteNannies.slice(0, visibleCount).map((nanny) => {
+                const age = nanny.birthday ? differenceInYears(new Date(), parseISO(nanny.birthday)) : "N/A";
+                return (
+                    <div key={nanny.id} className={css.detailsNannies}>
+                        <div className={css.imgContainer}>
+                            <img className={css.imgNannies} width="96" height="96" src={nanny.avatar_url} alt={nanny.name} />
                         </div>
-                        <h2 className={css.nameNanny}>{nanny.name}</h2>
-                        <p className={css.infoAge}>
-                            <span className={css.speaks}>Age: </span>
-                            <span className={css.underlined}>{nanny.age}</span>
-                        </p>
-                        <p className={css.info}><span className={css.lesson}>Kids age:</span> {nanny.kids_age}</p>
-                        <p className={css.infoConditions}><span className={css.conditions}>Characters:</span> {nanny.characters.join(',')}</p>
-                        <p className={css.infoConditions}><span className={css.conditions}>Education:</span> {nanny.education.join(',')}</p>
-                        {/* Кнопка Read more */}
+                        <div>
+                            <div className={css.detailsItems}>
+                                <h3 className={css.detailsTitle}>Nanny</h3>
+                                <ul className={css.detailsLink}>
+                                    <li className={css.detailsText}>
+                                        <svg className={css.iconMap} aria-hidden="true" width="32" height="32">
+                                            <use href="/icons.svg#icon-map" />
+                                        </svg>{nanny.location}
+                                    </li>
+                                    <span className={css.line}>|</span>
+                                    <li className={css.detailsText}>
+                                        <svg className={css.iconStar} aria-hidden="true" width="16" height="16">
+                                            <use href="/icons.svg#icon-star" />
+                                        </svg>
+                                        Rating:&nbsp;{nanny.rating}
+                                    </li>
+                                    <span className={css.line}>|</span>
+                                    <li className={css.detailsText}>
+                                        Price&nbsp;/&nbsp;1&nbsp;hour:&nbsp;<span className={css.priceNumber}>{nanny.price_per_hour}$</span>
+                                    </li>
+                                    <svg
+                                        onClick={() => {
+                                            toggleFavorite(nanny.id);
+                                            console.log(`Favorite status of nanny ${nanny.id}:`, favorites.includes(nanny.id));
+                                        }}
+                                        className={favorites.includes(nanny.id) ? css.iconHeartActive : css.iconHeart}
+                                        aria-hidden="true"
+                                        width="26"
+                                        height="26"
+                                    >
+                                        <use href="/icons.svg#icon-heart" />
+                                    </svg>
+                                </ul>
+                            </div>
+                            <h2 className={css.nameNanny}>{nanny.name}</h2>
+                            <div className={css.infoNanny}>
+                                <p className={css.info}>
+                                    <span className={css.detail}>Age: </span>
+                                    <span className={css.underlined}>{age}</span>
+                                </p>
+                                <p className={css.info}>
+                                    <span className={css.detail}>Experience:</span> {nanny.experience}
+                                </p>
+                                <p className={css.info}>
+                                    <span className={css.detail}>Kids age:</span> {nanny.kids_age}
+                                </p>
+                                <p className={css.info}>
+                                    <span className={css.detail}>Characters: </span> {nanny.characters?.join(',')}
+                                </p>
+                                <p className={css.info}>
+                                    <span className={css.detail}>Education: </span> {nanny.education}
+                                </p>
+                            </div>
+                            <p className={css.aboutText}>{nanny.about || "No information available"}</p>
 
-                        {expandedNannyId !== nanny.id && (
-                            <button className={css.readMore} onClick={() => handleReadMore(nanny.id)}>
-                                Read more
-                            </button>
-                        )}
-                        {expandedNannyId === nanny.id && (
-                            <>
-                                <p className={css.reviewText}>{nanny.about}</p>
-                                <div className={css.reviewsList}>
-                                    {nanny.reviews.map((review, index) => (
-                                        <div key={index} className={css.reviewItem}>
-                                            <div className={css.reviewReiting}>
-                                                <div className={css.reviewerCircle}>
-                                                    {review.reviewer_name[0].toUpperCase()}
-                                                </div>
-                                                <div>
-                                                    <h3 className={css.reviewName}>{review.reviewer_name}</h3>
-                                                    <svg className={css.iconStar} aria-hidden="true" width="16" height="16">
-                                                        <use href="/icons.svg#icon-star" />
-                                                    </svg>
-                                                    {review.reviewer_rating}
-                                                </div>
-                                            </div>
-                                            <p className={css.reviewItemText}>{review.comment}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </>
-                        )}
-
-                         {/* Кнопка Make an appointment */}
-
-                        {expandedNannyId === nanny.id && (
-                            <>
-                                <button className={css.openModalBtn} onClick={() => setIsModalOpen(true)}>
-                                    Make an appointment
+                            {/* Кнопка Read more */}
+                            {expandedNannyId !== nanny.id && (
+                                <button className={css.readMore} onClick={() => handleReadMore(nanny.id)}>
+                                    Read more
                                 </button>
-                                {isModalOpen && <ContactForm onSubmit={toggleModal} toggleModal={toggleModal} isOpen={isModalOpen} />}
-                            </>
-                        )}
+                            )}
+                            {expandedNannyId === nanny.id && (
+                                <>
+                                    <div className={css.reviewsList}>
+                                        {nanny.reviews?.map((review, index) => (
+                                            <div key={index} className={css.reviewItem}>
+                                                <div className={css.reviewFirst}>
+                                                    <div className={css.reviewerCircle}>
+                                                        {review.reviewer ? review.reviewer[0]?.toUpperCase() : "?"}
+                                                    </div>
+                                                    <div>
+                                                        <h3 className={css.reviewName}>{review.reviewer}</h3>
+                                                        <svg className={css.iconStar} aria-hidden="true" width="16" height="16">
+                                                            <use href="/icons.svg#icon-star" />
+                                                        </svg>
+                                                        {(review.rating && !isNaN(review.rating)) ? review.rating.toFixed(1) : 5.0}
+                                                    </div>
+                                                </div>
+                                                <p className={css.reviewItemText}>{review.comment}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+
+                            {/* Кнопка Make an appointment */}
+
+                            {expandedNannyId === nanny.id && (
+                                <>
+                                    <button className={css.openModalBtn} onClick={() => setIsModalOpen(true)}>
+                                        Make an appointment
+                                    </button>
+                                    {isModalOpen && <ContactForm onSubmit={toggleModal} toggleModal={toggleModal} isOpen={isModalOpen} />}
+                                </>
+                            )}
+                        </div>
                     </div>
-                </div>
-            ))}
+                );
+            })}
             {favoriteNannies.length > visibleCount && (
                 <LoadMoreButton onLoadMore={() => setVisibleCount(prev => prev + 4)} />
             )}
+            <ToastContainer />
         </div>
     );
 }

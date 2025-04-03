@@ -48,52 +48,7 @@
     color: rgba(17, 16, 28, 0.3);
 }
 
-
-/* вибір ціни часу уроку */
-.priceTeachers {
-    width: 124px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 129%;
-    color: #8a8a89;
-}
-
-.selectItemPrice {
-    border: none;
-    border-radius: 14px;
-    padding: 14px 18px;
-    width: 124px;
-    height: 48px;
-    background-color: #fff;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 111%;
-    color: #121417;
-}
-
-.selectItemPrice:hover,
-.selectItemPrice:focus {
-    outline: none;
-}
-
-.selectItemPrice:active {
-    outline: none;
-}
-
-.price {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 111%;
-    color: rgba(18, 20, 23, 0.2);
-}
-
-/* деталі вчителя */
+/* деталі няні */
 
 .detailsNannies {
     display: flex;
@@ -186,12 +141,12 @@
     width: 26px;
     height: 26px;
     fill: #fafafa;
-    stroke: #11101c;
+    stroke: #F03F3B;
 }
 
-.heartActive {
-    fill: #f4c550;
-    stroke: #f4c550;
+.iconHeartActive {
+    fill: #F03F3B;
+    stroke: #F03F3B;
 }
 
 .line {

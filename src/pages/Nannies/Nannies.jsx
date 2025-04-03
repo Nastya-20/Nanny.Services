@@ -21,16 +21,25 @@ export default function Nannies() {
     const [user, setUser] = useState(null);
     const [favorites, setFavorites] = useState([]);
 
-      useEffect(() => {
+    useEffect(() => {
         // Перевіряю статус авторизації користувача
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             if (currentUser) {
                 loadFavorites(currentUser.uid);
             } else {
-                const savedFavorites = localStorage.getItem("favorites");
-                const parsedFavorites = savedFavorites ? JSON.parse(savedFavorites) : [];
-                setFavorites(parsedFavorites);
+                try {
+                    const savedFavorites = localStorage.getItem("favorites");
+
+                    const parsedFavorites = savedFavorites && savedFavorites !== "undefined"
+                        ? JSON.parse(savedFavorites)
+                        : [];
+
+                    setFavorites(parsedFavorites);
+                } catch (error) {
+                    console.error("Error parsing favorites from localStorage:", error);
+                    setFavorites([]); 
+                }
             }
         });
 
@@ -215,6 +224,7 @@ export default function Nannies() {
                                 </p>
                             </div>
                             <p className={css.aboutText}>{nanny.about || "No information available"}</p>
+                            {/* Кнопка Read more */}
                             {expandedNannyId !== nanny.id && (
                                 <button className={css.readMore} onClick={() => handleReadMore(nanny.id)}>
                                     Read more

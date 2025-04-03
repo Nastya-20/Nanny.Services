@@ -40,14 +40,19 @@ export default function ContactForm({ toggleModal, isOpen }) {
         });
         return () => unsubscribe();
     }, []);
+
+
     const {
         reset,
         register,
         handleSubmit,
+        clearErrors,
+        setValue,
         formState: { errors },
     } = useForm({
         resolver: yupResolver(schema),
-    });
+      });
+
    
     const onSubmit = async (data) => {
         console.log('Form Submitted:', data);
@@ -101,14 +106,16 @@ export default function ContactForm({ toggleModal, isOpen }) {
                         </div>
                         <form className={css.contactForm} onSubmit={handleSubmit(onSubmit)}>
                             <div className={css.contactItem}>
+
                                 <div>
                                     <p className={css.error}>{errors.address?.message}</p>
                                     <input
                                         className={css.input}
                                         type="text"
                                         placeholder="Address"
-                                        {...register('Address')}
+                                        {...register('address')}
                                     />
+
                                 </div>
                                 <div>
                                     <p className={css.error}>{errors.phone?.message}</p>
@@ -129,9 +136,13 @@ export default function ContactForm({ toggleModal, isOpen }) {
                                     />
                                 </div>
                                 <div className={css.timeInputWrap}>
-                                    <p className={css.error}>{errors.time?.message}</p>
-                                    <input type="hidden" {...register("time")} value={selectedTime} />
-
+                                    <p className={css.error}>{errors.time?.message}</p> 
+                                    <input
+                                        type="hidden"
+                                        {...register('time')}
+                                        value={selectedTime}
+                                    />
+                                  
                                     <div className={css.timeDropdown}>
                                         <button
                                             type="button"
@@ -140,16 +151,20 @@ export default function ContactForm({ toggleModal, isOpen }) {
                                         >
                                             {selectedTime || "00:00"}
                                         </button>
-
+                               
                                         {showDropdown && (
                                             <ul className={css.dropdownMenu}>
                                                 {timeOptions.map((time) => (
                                                     <li
                                                         key={time}
-                                                        className={css.dropdownItem}
+                                                        className={`${css.dropdownItem} ${time === "Meeting time" ? css.disabledItem : ""}`}
                                                         onClick={() => {
-                                                            setSelectedTime(time);
-                                                            setShowDropdown(false);
+                                                            if (time !== "Meeting time") {
+                                                                setSelectedTime(time);
+                                                                setValue("time", time);
+                                                                clearErrors("time");
+                                                                setShowDropdown(false);
+                                                            }
                                                         }}
                                                     >
                                                         {time}

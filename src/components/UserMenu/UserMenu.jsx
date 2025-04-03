@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { AuthModal } from "../AuthModal/AuthModal";
 import { useNavigate } from "react-router-dom";
 import {
-    createUserWithEmailAndPassword,
+      createUserWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
     signInWithEmailAndPassword,
@@ -20,14 +20,13 @@ export default function UserMenu() {
     const [error, setError] = useState("");
     const [user, setUser] = useState(null);
 
-
-    const handleRegister = async ({ name, email, password }) => {
+     const handleRegister = async ({ name, email, password }) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             console.log("User registered successfully:", userCredential.user);
-            const user = userCredential.user;
+            const newUser = userCredential.user;
 
-            await updateProfile(user, {
+            await updateProfile(newUser, {
                 displayName: name
             });
             await signInWithEmailAndPassword(auth, email, password);
@@ -51,8 +50,9 @@ export default function UserMenu() {
         console.log("Logging  in with:", email, password);
         try {
             // Перевірка, чи вже залогінений користувач
-            const user = auth.currentUser;
             if (user) {
+                const userName = user.displayName || email;  // Якщо ім'я не задано, використовуємо email
+                console.log("User logged in as:", userName);
                 navigate('/nannies');
                 return;
             }
@@ -60,6 +60,11 @@ export default function UserMenu() {
             // Логін користувача
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             console.log("User logged in successfully:", userCredential.user);
+
+            const loggedInUser = userCredential.user;
+            const userName = loggedInUser.displayName || email;  // Якщо ім'я не задано, використовуємо email
+            console.log("User logged in as:", userName);
+
 
             // Перехід на сторінку нянь
             navigate('/nannies');
@@ -88,9 +93,9 @@ export default function UserMenu() {
     };
 
     useEffect(() => {
-        const listen = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
+        const listen = onAuthStateChanged(auth, (authUser) => {
+            if (authUser) {
+                setUser(authUser);
             } else {
                 setUser(null);
             }
@@ -111,12 +116,14 @@ export default function UserMenu() {
         <>
             <nav className={css.userMenu}>
                 {user ? (
-                    <div className={css.wrapper}>
+                    <div className={css.wrapperLogout}>
                         <div className={css.userName}>
-                        <svg className={css.openMenuIcons} width="24" height="24">
-                            <use href="/icons.svg#icon-user"></use>
-                        </svg>
-                            <p className={css.welcome}>{user.email}!</p>
+                            <span className={css.userIconWrap}>
+                                <svg className={css.userIcon} width="24" height="24">
+                                    <use href="/icons.svg#icon-user"></use>
+                                </svg>
+                            </span>
+                            <p className={css.displayName}>{user.displayName}</p>
                         </div>
                         <button className={css.logout} type="button" onClick={handleLogout}>
                             Log out
