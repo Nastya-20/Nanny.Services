@@ -1,17 +1,32 @@
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
+import Loader from '../../components/Loader/Loader';
+
 import css from './Home.module.css';
 
 export default function Home() {
+    const [loading, setLoading] = useState(false);
+
+    const handleClick = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 20000);
+    }
+
     return (
         <div className={css.container}>
             <div className={css.homeTitle}>
                 <h1 className={css.homeName}>Make Life Easier for the Family:</h1>
                 <p className={css.homeText}>Find Babysitters Online for All Occasions</p>
-                <button className={css.homeBtn}>Get started
+                <NavLink to="/nannies">
+                <button onClick={handleClick} className={css.homeBtn} type='submit'>
+                    Get started
                     <svg className={css.homeIcon} width="15" height="17">
                         <use className={css.defaultIcon} href="/icons.svg#icon-arrow-top"></use>
                         <use className={css.hoverIcon} href="/icons.svg#icon-arrow-right"></use>
                     </svg>
-                </button>
+                    </button>
+                </NavLink>
+                {loading && <Loader/>} {""}
                 </div>
             <img className={css.homeImg} src='/hero-bg-1x.jpg' />
             <div className={css.experienced}>
