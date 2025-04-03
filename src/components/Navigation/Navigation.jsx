@@ -1,11 +1,12 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import { useAuth } from '../AuthContext'; 
 import UserMenu from '../UserMenu/UserMenu';
 import css from './Navigation.module.css';
 
 export default function Navigation() {
     const location = useLocation();
+    const { user, loading } = useAuth(); // Отримуємо користувача
 
-    // Фіксований хедер тільки на головній сторінці
     const isFixed = location.pathname === "/";
 
     return (
@@ -24,12 +25,15 @@ export default function Navigation() {
                     <NavLink to="/nannies" className={({ isActive }) => isActive ? css.active : css.link}>
                         Nannies
                     </NavLink>
-                    <NavLink to="/favorites" className={({ isActive }) => isActive ? css.active : css.link}>
-                        Favorites
-                    </NavLink> 
- 
-                     <UserMenu />
-   
+                    {/* Посилання на Favorites показується тільки, якщо користувач увійшов */}
+                    {!loading && user && (
+                        <NavLink to="/favorites" className={({ isActive }) => isActive ? css.active : css.link}>
+                            Favorites
+                        </NavLink>
+                    )}
+                </div>
+                <div className={css.navUserMenu}>
+                    <UserMenu />
                 </div>
             </nav>
         </header>

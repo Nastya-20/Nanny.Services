@@ -59,8 +59,7 @@ export default function UserMenu() {
 
             // Логін користувача
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            console.log("User logged in successfully:", userCredential.user);
-
+          
             const loggedInUser = userCredential.user;
             const userName = loggedInUser.displayName || email;  // Якщо ім'я не задано, використовуємо email
             console.log("User logged in as:", userName);
@@ -85,8 +84,7 @@ export default function UserMenu() {
     const handleLogout = async () => {
         try {
             await signOut(auth);
-            console.log("User logged out successfully");
-            navigate('/');
+             navigate('/nannies');
         } catch (error) {
             console.error("Logout error:", error);
         }

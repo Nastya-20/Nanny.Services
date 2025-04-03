@@ -84,8 +84,6 @@
         position: absolute;
         top: 50px;
         right: 0;
-        left: 50%;
-        transform: translateX(-50%);
         width: 1184px;
         height: 48px;
         z-index: 1000;
@@ -99,16 +97,16 @@
         width: 1184px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        gap: 0;
     }
 
     .navigation {
-        width: 621px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
         gap: 40px;
+        margin-right: 92px;
     }
+
     .active {
         font-family: "Helvetica Neue", sans-serif;
         font-weight: 400;
@@ -139,5 +137,6 @@
         width: 164px;
         height: 28px;
         font-size: 24px;
+        margin-right: 487px;
     }
 }
