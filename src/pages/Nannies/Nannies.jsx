@@ -14,12 +14,14 @@ import css from "./Nannies.module.css";
 export default function Nannies() {
     const [expandedNannyId, setExpandedNannyId] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [visibleCount, setVisibleCount] = useState(4);
+    const [visibleCount, setVisibleCount] = useState(3);
     const [nannies, setNannies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [user, setUser] = useState(null);
     const [favorites, setFavorites] = useState([]);
+    const [selectedOption, setSelectedOption] = useState('A to Z');
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         // Перевіряю статус авторизації користувача
@@ -140,34 +142,86 @@ export default function Nannies() {
         fetchNannies();
     }, []);
 
+    const options = [
+        'A to Z',
+        'Z to A',
+        'Less than 10$',
+        'Greater than 10$',
+        'Popular',
+        'Not popular',
+        'Show all'
+    ];
+
+    const toggleDropdown = () => setIsOpen(!isOpen);
+
+    const handleOptionClick = (option) => {
+        setSelectedOption(option);
+        setIsOpen(false);
+      };
+
+    const sortAndFilterNannies = () => {
+        let sorted = [...nannies];
+
+        switch (selectedOption) {
+            case 'A to Z':
+                sorted.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case 'Z to A':
+                sorted.sort((a, b) => b.name.localeCompare(a.name));
+                break;
+            case 'Less than 10$':
+                sorted = sorted.filter(nanny => nanny.price_per_hour < 10);
+                break;
+            case 'Greater than 10$':
+                sorted = sorted.filter(nanny => nanny.price_per_hour >= 10);
+                break;
+            case 'Popular':
+                sorted.sort((a, b) => b.rating - a.rating);
+                break;
+            case 'Not popular':
+                sorted.sort((a, b) => a.rating - b.rating);
+                break;
+            default:
+                break;
+        }
+
+        return sorted;
+    };
     
     return (
         <div className={css.wrapperNannies}>
-            <ul className={css.selectorNannies}>
-                <li>
-                    <label className={css.filtersNannies}>
-                        Filters
-                        <select className={css.selectItemFilter}>
-                            <option value="A to Z">A to Z</option>
-                            <option value="Z to A">Z to A</option>
-                            <option value="Less than 10$">Less than 10$</option>
-                            <option value="Greater than 10$">Greater than 10$</option>
-                            <option value="Popular">Popular</option>
-                            <option value="Not popular">Not popular</option>
-                            <option value="Show all">Show all</option>
-                        </select>
-                    </label>
-                </li>
-            </ul>
+            <p className={css.filtersNannies}>Filters</p>
+            <div className={css.customSelectWrapper}>
+                <div className={css.customSelect} onClick={toggleDropdown}>
+                    <span>{selectedOption}</span>
+                    <span className={css.arrow}></span>
+                </div>
+                {isOpen && (
+                    <ul className={css.customOptions}>
+                        {options.map((option) => (
+                            <li
+                                key={option}
+                                className={css.optionItem}
+                                onClick={() => handleOptionClick(option)}
+                            >
+                                {option}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
             {loading && <Loader />}
             {error && <p className={css.error}>{error}</p>}
 
-            {!loading && !error && nannies?.slice(0, visibleCount).map((nanny) => {
+            {!loading && !error && sortAndFilterNannies().slice(0, visibleCount).map((nanny) => {
                 const age = nanny.birthday ? differenceInYears(new Date(), parseISO(nanny.birthday)) : "N/A";
 
                 return (
                     <div key={nanny.id} className={css.detailsNannies}>
                         <div className={css.imgContainer}>
+                            <div className={css.statusWrapper}>
+                                <div className={css.greenDot}></div>
+                            </div>
                             <img className={css.imgNannies} width="96" height="96" src={nanny.avatar_url} alt={nanny.name} />
                         </div>
                         <div>
@@ -193,7 +247,6 @@ export default function Nannies() {
                                     <svg
                                         onClick={() => {
                                             toggleFavorite(nanny.id);
-                                            console.log(`Favorite status of nanny ${nanny.id}:`, favorites.includes(nanny.id));
                                         }}
                                         className={favorites.includes(nanny.id) ? css.iconHeartActive : css.iconHeart}
                                         aria-hidden="true"
@@ -258,7 +311,7 @@ export default function Nannies() {
                                     <button className={css.openModalBtn} onClick={() => setIsModalOpen(true)}>
                                         Make an appointment
                                     </button>
-                                    {isModalOpen && <ContactForm onSubmit={toggleModal} toggleModal={toggleModal} isOpen={isModalOpen} />}
+                                    {isModalOpen && <ContactForm onSubmit={toggleModal} toggleModal={toggleModal} isOpen={isModalOpen} nanny={nanny} />}
                                 </>
                             )}
                         </div>
@@ -266,7 +319,7 @@ export default function Nannies() {
                 );
             })}
             {nannies.length > visibleCount && (
-                <LoadMoreButton onLoadMore={() => setVisibleCount(prev => prev + 4)} />
+                <LoadMoreButton onLoadMore={() => setVisibleCount(prev => prev + 3)} />
             )}
             <ToastContainer />
         </div>

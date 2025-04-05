@@ -7,9 +7,9 @@
 }
 
 /* стилі для вибору елементів */
-.selectorNannies {
+.customSelectWrapper {
+    position: relative;
     width: 226px;
-    height: 74px;
     margin-bottom: 32px;
 }
 
@@ -22,30 +22,64 @@
     margin-bottom: 8px;
 }
 
-.selectItemFilter {
-    border: none;
-    border-radius: 14px;
-    padding: 6px 15px 6px 18px;
-    width: 226px;
-    height: 48px;
-    background: #f03f3b;
-    font-family: 'Roboto', sans-serif;
+.customSelect {
+    background-color: #F03F3B;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 111%;
     color: #fbfbfb;
+    border-radius: 14px;
+    padding: 16px 18px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+/* Кастомна стрілочка */
+.arrow {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M31.5 192h257c28.5 0 42.8 34.5 22.6 54.6l-128.5 128.5c-12.5 12.5-32.8 12.5-45.3 0L8.9 246.6C-11.3 226.5 2.7 192 31.5 192z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.selectItemFilter:hover,
-.selectItemFilter:focus {
-    outline: none;
-    background-color: #fff;
-    color: rgba(17, 16, 28, 0.3);
+.customOptions {
+    list-style: none;
+    margin-top: 8px;
+    padding: 18px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
+    background: #fff;
+    z-index: 100;
+    max-height: 244px;
 }
 
-.selectItemFilter:active {
-    outline: none;
+.optionItem {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 111%;
     color: rgba(17, 16, 28, 0.3);
+    cursor: pointer;
+    padding-bottom: 12px;
+    transition: background 0.2s ease;
+}
+
+.optionItem:hover {
+    background-color: #ffffff;
+    color: #11101c;
 }
 
 /* деталі няні */

@@ -11,10 +11,9 @@ const RegistrationForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
     const { reset, register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(registerSchema),
     });
-    console.log("Form Errors:", errors);
-
+  
     const submitForm = async (data) => {
-        console.log("Form data:", data);
+
         try {
             await onSubmit(data);
             onClose();
@@ -23,9 +22,7 @@ const RegistrationForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
 
             toast.success("Registration successful! You can now log in.");
         } catch (error) {
-            console.error("Registration error:", error);
-
-            toast.error("Registration failed. Please try again.");
+             toast.error("Registration failed. Please try again.");
             if (error.code === 'auth/email-already-in-use') {
                 onSwitchToLogin();
             }
@@ -54,6 +51,7 @@ const RegistrationForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
             </div>
             <div>
                 {errors.password && <p className={css.errors}>{errors.password.message}</p>}
+                <div className={css.inputInner}>
                 <input
                     className={css.passwordForm}
                     type={showPassword ? "text" : "password"}
@@ -69,7 +67,8 @@ const RegistrationForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
                     onClick={() => setShowPassword((prev) => !prev)}
                 >
                     <use href={`/icons.svg#icon-eye${showPassword ? "" : "-off"}`} />
-                </svg>
+                    </svg>
+                </div>
             </div>
             <button className={css.buttonForm} type="submit">Sign Up</button>
         </form>

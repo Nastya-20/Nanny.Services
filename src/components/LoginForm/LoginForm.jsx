@@ -12,18 +12,16 @@ const LoginForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
     const { reset, register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(loginSchema),
     });
-    console.log("Form Errors:", errors);
-
+  
     const login = async (data) => {
-        console.log("Form data:", data);
-        try {
+          try {
             await onSubmit(data);
-            toast.success("Successfully logged in!");
+         
             onClose();
             reset();
 
         } catch (error) {
-            console.log("Login error:", error.code);
+              toast.error("Login error:", error.code);
 
             if (error.code === 'auth/user-not-found') {
                 // Виводимо тост при невдалій спробі знайти користувача
@@ -41,7 +39,7 @@ const LoginForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
 
     return (
         <form onSubmit={handleSubmit(login)} className={css.authForm} autoComplete="on">
-            <div>
+            <div className={css.inputWrapper}>
                 {errors.email && <p className={css.errors}>{errors.email.message}</p>}
                 <input
                     className={css.emailForm}
@@ -53,6 +51,7 @@ const LoginForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
             </div>
             <div className={css.inputWrapper}>
                 {errors.password && <p className={css.errors}>{errors.password.message}</p>}
+                <div className={css.inputInner}>
                 <input
                     className={css.passwordForm}
                     type={showPassword ? "text" : "password"}
@@ -68,7 +67,8 @@ const LoginForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
                     onClick={() => setShowPassword((prev) => !prev)}
                 >
                     <use href={`/icons.svg#icon-eye${showPassword ? "" : "-off"}`} />
-                </svg>
+                    </svg>
+                </div>
             </div>
             <button className={css.buttonForm} type="submit">Log in</button>
         </form>

@@ -11,6 +11,8 @@ import {
 import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import { auth } from "../../firebase";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import css from "./UserMenu.module.css";
 
 export default function UserMenu() {
@@ -23,36 +25,33 @@ export default function UserMenu() {
      const handleRegister = async ({ name, email, password }) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            console.log("User registered successfully:", userCredential.user);
             const newUser = userCredential.user;
 
             await updateProfile(newUser, {
                 displayName: name
             });
             await signInWithEmailAndPassword(auth, email, password);
-            console.log("User logged in successfully");
+            toast.success("User registered and logged in successfully!");
 
             navigate('/nannies');
             setIsRegisterOpen(false);
         } catch (error) {
-            console.error("Registration error:", error);
             if (error.code === 'auth/email-already-in-use') {
-                setError("This email is already in use. Please log in.");
+                toast.error("This email is already in use. Please log in.");
                 setIsRegisterOpen(false);
                 setIsLoginOpen(true);
-            } else {
-                setError("Registration failed. Please try again.");
+               } else {
+                toast.error("Registration failed. Please try again.");
             }
         }
     };
 
     const handleLogin = async ({ email, password }) => {
-        console.log("Logging  in with:", email, password);
         try {
             // Перевірка, чи вже залогінений користувач
             if (user) {
                 const userName = user.displayName || email;  // Якщо ім'я не задано, використовуємо email
-                console.log("User logged in as:", userName);
+                toast.error(`User logged in as: ${userName}`);
                 navigate('/nannies');
                 return;
             }
@@ -62,21 +61,20 @@ export default function UserMenu() {
           
             const loggedInUser = userCredential.user;
             const userName = loggedInUser.displayName || email;  // Якщо ім'я не задано, використовуємо email
-            console.log("User logged in as:", userName);
-
-
+           
+            toast.success(`User logged in successfully!", Welcome, ${ userName }`);
             // Перехід на сторінку нянь
             navigate('/nannies');
 
         } catch (error) {
-            console.error("Login error:", error);
+            toast.error("Login error:" + error.message);
 
             if (error.code === 'auth/user-not-found') {
-                setError("This user doesn't exist. Please register first.");
+               toast.error("This user doesn't exist. Please register first.");
             } else if (error.code === 'auth/wrong-password') {
-                setError("Incorrect password. Please try again.");
+                toast.error("Incorrect password. Please try again.");
             } else {
-                setError("Login failed. Please try again.");
+                toast.error("Login failed. Please try again.");
             }
         }
     };
@@ -84,9 +82,10 @@ export default function UserMenu() {
     const handleLogout = async () => {
         try {
             await signOut(auth);
+            toast.success("Logged out successfully!");
              navigate('/nannies');
         } catch (error) {
-            console.error("Logout error:", error);
+            toast.error("Logout failed. Please try again.");
         }
     };
 
@@ -162,6 +161,7 @@ export default function UserMenu() {
                     <RegistrationForm onSubmit={handleRegister} onClose={() => setIsRegisterOpen(false)} onSwitchToLogin={handleSwitchToLogin} />
                 </AuthModal>
             )}
+            <ToastContainer />
         </>
     );
 }

@@ -20,33 +20,37 @@ form {
     height: 54px;
     margin-bottom: 18px;
 }
-
 .inputWrapper {
-    position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     width: 438px;
+    min-height: 52px;
 }
 
-.passwordForm {
+.inputInner {
     position: relative;
+    width: 100%;
+}
+.passwordForm {
     border: 1px solid rgba(18, 20, 23, 0.1);
     border-radius: 12px;
     padding: 16px 18px;
     width: 438px;
     height: 54px;
     margin-bottom: 40px;
+    padding-right: 40px;
 }
-
 .iconEye {
     position: absolute;
-    right: 80px;
-    top: 68%;
+    top: 30%;
+    right: 18px;
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
     stroke: #121417;
     fill: #fbfbfb;
+    cursor: pointer;
 }
 
 .buttonForm {
@@ -73,6 +77,11 @@ form {
 
 .errors {
     color: #da2929;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 137%;
+    height: 10px;
     margin-bottom: 8px;
 }
 

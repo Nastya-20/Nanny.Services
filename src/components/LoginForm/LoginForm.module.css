@@ -19,13 +19,19 @@ form {
     width: 438px;
     height: 54px;
     margin-bottom: 18px;
-}
+ }
 
 .inputWrapper {
-    position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     width: 438px;
+    min-height: 52px;
+}
+
+.inputInner {
+    position: relative;
+    width: 100%;
 }
 
 .passwordForm {
@@ -35,17 +41,18 @@ form {
     width: 438px;
     height: 54px;
     margin-bottom: 40px;
+    padding-right: 40px;
 }
-
 .iconEye {
     position: absolute;
+    top: 30%;
     right: 18px;
-    top: 27%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); 
     width: 20px;
     height: 20px;
     stroke: #121417;
     fill: #fbfbfb;
+    cursor: pointer;
 }
 .buttonForm {
     border-radius: 30px;
@@ -71,11 +78,16 @@ form {
 
 .errors {
     color: #da2929;
-    margin-bottom: 18px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    height: 20px;
+    font-size: 12px;
+    line-height: 137%;
+    margin-bottom: 8px;
 }
 
 input::placeholder {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 137%;

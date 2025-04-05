@@ -32,7 +32,7 @@ const schema = yup.object().shape({
     comment: yup.string().required('Comment is required'),
 });
 
-export default function ContactForm({ toggleModal, isOpen }) {
+export default function ContactForm({ toggleModal, isOpen, nanny }) {
     const [user, setUser] = React.useState(null);
     React.useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -96,14 +96,17 @@ export default function ContactForm({ toggleModal, isOpen }) {
                                 a safe and comfortable environment.
                                 Fill out the form below so we can match
                                 you with the perfect care partner.</p>
+                            {nanny && (
                             <div className={css.infoNanny}>
-                                <img className={css.imgNanny} width="96" height="96" src="/nanny.jpg" alt="Nanny" />
+                                <img className={css.imgNanny} width="96" height="96" src={nanny.avatar_url} alt={nanny.name} />
                                 <div className={css.myNanny}>
                                     <p className={css.nannyText}>Your nanny</p>
-                                    <h3 className={css.nannyName}>Anna Shevchenko</h3>
+                                        <h3 className={css.nannyName}>{nanny.name}</h3>
                                 </div>
-                            </div>
+                                </div>
+                            )}
                         </div>
+                    
                         <form className={css.contactForm} onSubmit={handleSubmit(onSubmit)}>
                             <div className={css.contactItem}>
 
