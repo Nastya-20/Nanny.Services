@@ -15,8 +15,7 @@ export default function App() {
 
     return (
         <>
-            <ToastContainer />
-            {location.pathname !== '/notfound' && <Navigation />}
+          {location.pathname !== '/notfound' && <Navigation />}
             <Suspense fallback={<Loader />}>
                 <Routes>
                     <Route extra path='/' element={<Home />} />
@@ -26,6 +25,18 @@ export default function App() {
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>
+            <ToastContainer
+                position="top"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
         </>
     );
 }

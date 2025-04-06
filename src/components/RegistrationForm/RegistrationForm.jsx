@@ -13,14 +13,12 @@ const RegistrationForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
     });
   
     const submitForm = async (data) => {
-
         try {
             await onSubmit(data);
             onClose();
             reset(),
-                onSwitchToLogin(data);
+            onSwitchToLogin(data);
 
-            toast.success("Registration successful! You can now log in.");
         } catch (error) {
              toast.error("Registration failed. Please try again.");
             if (error.code === 'auth/email-already-in-use') {

@@ -55,7 +55,7 @@ export default function ContactForm({ toggleModal, isOpen, nanny }) {
 
    
     const onSubmit = async (data) => {
-        console.log('Form Submitted:', data);
+        // console.log('Form Submitted:', data);
         if (!user) {
             toast.error('You must be logged in to submit the form.');
             return;

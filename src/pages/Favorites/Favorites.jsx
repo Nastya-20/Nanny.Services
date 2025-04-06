@@ -51,7 +51,6 @@ export default function Favorites() {
                 }));
                 setNannies(nanniesList);
             } catch (error) {
-                console.error("Error fetching nannies:", error);
                 setError("Failed to load nannies.");
                 toast.error("Error fetching nannies.");
             } finally {
@@ -98,8 +97,7 @@ export default function Favorites() {
                     : "Added to favorites!"
             );
         } catch (error) {
-            console.error("Error updating favorites:", error);
-            toast.error("Failed to load favorites.");
+             toast.error("Failed to load favorites.");
         }
     };
 

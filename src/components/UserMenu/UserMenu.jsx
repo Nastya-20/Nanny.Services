@@ -11,7 +11,7 @@ import {
 import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import { auth } from "../../firebase";
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from "./UserMenu.module.css";
 
@@ -31,7 +31,7 @@ export default function UserMenu() {
                 displayName: name
             });
             await signInWithEmailAndPassword(auth, email, password);
-            toast.success("User registered and logged in successfully!");
+            toast.success("User registered  in successfully!");
 
             navigate('/nannies');
             setIsRegisterOpen(false);
@@ -40,9 +40,7 @@ export default function UserMenu() {
                 toast.error("This email is already in use. Please log in.");
                 setIsRegisterOpen(false);
                 setIsLoginOpen(true);
-               } else {
-                toast.error("Registration failed. Please try again.");
-            }
+            } throw error;
         }
     };
 
@@ -58,24 +56,15 @@ export default function UserMenu() {
 
             // Логін користувача
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
-          
             const loggedInUser = userCredential.user;
             const userName = loggedInUser.displayName || email;  // Якщо ім'я не задано, використовуємо email
            
-            toast.success(`User logged in successfully!", Welcome, ${ userName }`);
+            toast.success(`User logged in successfully!, Welcome, ${ userName }`);
             // Перехід на сторінку нянь
             navigate('/nannies');
 
         } catch (error) {
             toast.error("Login error:" + error.message);
-
-            if (error.code === 'auth/user-not-found') {
-               toast.error("This user doesn't exist. Please register first.");
-            } else if (error.code === 'auth/wrong-password') {
-                toast.error("Incorrect password. Please try again.");
-            } else {
-                toast.error("Login failed. Please try again.");
-            }
         }
     };
 
@@ -161,7 +150,6 @@ export default function UserMenu() {
                     <RegistrationForm onSubmit={handleRegister} onClose={() => setIsRegisterOpen(false)} onSwitchToLogin={handleSwitchToLogin} />
                 </AuthModal>
             )}
-            <ToastContainer />
         </>
     );
 }

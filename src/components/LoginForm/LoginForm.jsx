@@ -12,18 +12,15 @@ const LoginForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
     const { reset, register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(loginSchema),
     });
-  
+
     const login = async (data) => {
-          try {
+        try {
             await onSubmit(data);
-         
             onClose();
             reset();
 
         } catch (error) {
-              toast.error("Login error:", error.code);
-
-            if (error.code === 'auth/user-not-found') {
+             if (error.code === 'auth/user-not-found') {
                 // Виводимо тост при невдалій спробі знайти користувача
                 toast.error("This user doesn't exist. Please register first.");
                 onSwitchToLogin();
