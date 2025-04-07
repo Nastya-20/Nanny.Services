@@ -6,7 +6,7 @@
 
 🔗 Посилання на проект
 Деплой на Vercel.app: nanny-services-psi.vercel.app
-![QR code](image.png)
+![QR code](./assets/image-3.png)
 
 Макет у Figma: https://www.figma.com/design/u36ajEOsnwio2GDGiabVPD/Nanny-Sevices?node-id=0-1&p=f&t=XkhIhvD2Oa9ZdcpG-0
 
