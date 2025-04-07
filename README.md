@@ -9,8 +9,8 @@
 
 Макет у Figma: https://www.figma.com/design/u36ajEOsnwio2GDGiabVPD/Nanny-Sevices?node-id=0-1&p=f&t=XkhIhvD2Oa9ZdcpG-0
 
-![Макет у Figma](image.png)
-![Макет у Figma](image-1.png)
+![Головна сторінка](./assets/image.png)
+![Сторінка з нянями](./assets/image-1.png)
 
 Репозиторій на GitHub: https://github.com/Nastya-20/Nanny.Services
 
