@@ -170,7 +170,7 @@ export default function Favorites() {
         <div className={css.wrapperNannies}>
             <p className={css.filtersNannies}>Filters</p>
             <div className={css.customSelectWrapper}>
-                <div className={css.customSelect} onClick={toggleDropdown}>
+                <div style={{ backgroundColor: 'var(--color-primary)' }} className={css.customSelect} onClick={toggleDropdown}>
                     <span>{selectedOption}</span>
                     <span className={css.arrow}></span>
                 </div>

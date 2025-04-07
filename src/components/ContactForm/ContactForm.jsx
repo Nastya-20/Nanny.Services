@@ -213,7 +213,7 @@ export default function ContactForm({ toggleModal, isOpen, nanny }) {
                                 {...register('comment')}
                             />
 
-                            <button className={css.buttonContact} type="submit">
+                            <button  className={css.buttonContact} type="submit">
                                 Send
                             </button>
                         </form>

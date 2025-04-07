@@ -25,12 +25,12 @@
 .loginBtn:hover,
 .loginBtn:focus {
     background-color: #fbfbfb;
-    color: #F03F3B;
+    color: var(--color-primary);
 }
 
 .loginBtn:active {
     background-color: #fbfbfb;
-    color: #F03F3B;
+    color: var(--color-primary);
 }
 
 .registrationBtn {
@@ -39,7 +39,7 @@
     padding: 14px 40px;
     width: 168px;
     height: 48px;
-    background-color: #F03F3B;
+    background-color: var(--color-primary);
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -52,12 +52,12 @@
 .registrationBtn:hover,
 .registrationBtn:focus {
     background-color: #fbfbfb;
-    color: #F03F3B;
+    color: var(--color-primary);
 }
 
 .registrationBtn:active {
     background-color: #fbfbfb;
-    color: #F03F3B;
+    color: var(--color-primary);
 }
 
 /* modal */
@@ -134,7 +134,7 @@
 .userIcon {
     width: 24px;
     height: 24px;
-   fill: #F03F3B;
+   fill: var(--color-primary);
 }
 
 .displayName {
@@ -165,10 +165,10 @@
 .logout:hover,
 .logout:focus {
     background-color: #fbfbfb;
-    color: #F03F3B;
+    color: var(--color-primary);
 }
 
 .logout:active {
     background-color: #fbfbfb;
-    color: #F03F3B;
+    color: var(--color-primary);
 }

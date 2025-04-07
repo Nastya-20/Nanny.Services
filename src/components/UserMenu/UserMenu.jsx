@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { AuthModal } from "../AuthModal/AuthModal";
 import { useNavigate } from "react-router-dom";
 import {
-      createUserWithEmailAndPassword,
+    createUserWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
     signInWithEmailAndPassword,
@@ -117,11 +117,11 @@ export default function UserMenu() {
                     </div>
                 ) : (
                     <>
-                        <button className={css.loginBtn} type="button" onClick={() => { setError(""); setIsLoginOpen(true); }}>
+                            <button className={css.loginBtn} type="button" onClick={() => { setError(""); setIsLoginOpen(true); }}>
                             Log in
                         </button>
 
-                        <button className={css.registrationBtn} type="button" onClick={() => { setError(""); setIsRegisterOpen(true); }}>
+                            <button  className={css.registrationBtn} type="button" onClick={() => { setError(""); setIsRegisterOpen(true); }}>
                             Registration
                         </button>
                     </>

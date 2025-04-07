@@ -1,0 +1,30 @@
+.themeWrap {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+}
+
+.themeTitle{
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 111%;
+    color: #fbfbfb;
+}
+
+.themeItem {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 28px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 129%;
+    background-color: #fbfbfb;
+    color: var(--color-primary);
+}

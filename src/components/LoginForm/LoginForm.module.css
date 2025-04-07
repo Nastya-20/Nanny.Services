@@ -59,7 +59,7 @@ form {
     padding: 16px 19px;
     width: 438px;
     height: 52px;
-    background-color: #f03f3b;
+    background-color: var(--color-primary);
     color: #fbfbfb;
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
@@ -71,9 +71,9 @@ form {
 
 .buttonForm:hover,
 .buttonForm:focus {
-    border: 1px solid #f03f3b;
+    border: 1px solid var(--color-primary);
     background-color: #fbfbfb;
-    color: #f03f3b;
+    color: var(--color-primary);
 }
 
 .errors {

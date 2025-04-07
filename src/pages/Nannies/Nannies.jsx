@@ -145,8 +145,8 @@ export default function Nannies() {
     const options = [
         'A to Z',
         'Z to A',
-        'Less than 10$',
-        'Greater than 10$',
+        'Price: Low to High',
+        'Price: High to Low',
         'Popular',
         'Not popular',
         'Show all'
@@ -169,11 +169,11 @@ export default function Nannies() {
             case 'Z to A':
                 sorted.sort((a, b) => b.name.localeCompare(a.name));
                 break;
-            case 'Less than 10$':
-                sorted = sorted.filter(nanny => nanny.price_per_hour < 10);
+            case 'Price: Low to High':
+                sorted.sort((a, b) => a.price_per_hour - b.price_per_hour);
                 break;
-            case 'Greater than 10$':
-                sorted = sorted.filter(nanny => nanny.price_per_hour >= 10);
+            case 'Price: High to Low':
+                sorted.sort((a, b) => b.price_per_hour - a.price_per_hour);
                 break;
             case 'Popular':
                 sorted.sort((a, b) => b.rating - a.rating);
@@ -191,7 +191,7 @@ export default function Nannies() {
     return (
         <div className={css.wrapperNannies}>
             <p className={css.filtersNannies}>Filters</p>
-            <div className={css.customSelectWrapper}>
+            <div className={css.customSelectWrapper} >
                 <div className={css.customSelect} onClick={toggleDropdown}>
                     <span>{selectedOption}</span>
                     <span className={css.arrow}></span>
@@ -308,7 +308,7 @@ export default function Nannies() {
                             )}
                             {expandedNannyId === nanny.id && (
                                 <>
-                                    <button className={css.openModalBtn} onClick={() => setIsModalOpen(true)}>
+                                    <button  className={css.openModalBtn} onClick={() => setIsModalOpen(true)}>
                                         Make an appointment
                                     </button>
                                     {isModalOpen && <ContactForm onSubmit={toggleModal} toggleModal={toggleModal} isOpen={isModalOpen} nanny={nanny} />}

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import ThemeSwitcher from '../../components/ThemeSwitcher/ThemeSwitcher'
 import Loader from '../../components/Loader/Loader';
 
 import css from './Home.module.css';
@@ -13,12 +14,14 @@ export default function Home() {
     }
 
     return (
-        <div className={css.container}>
+        <div className={css.container} style={{ backgroundColor: 'var(--color-primary)'}}>
             <div className={css.homeTitle}>
                 <h1 className={css.homeName}>Make Life Easier for the Family:</h1>
                 <p className={css.homeText}>Find Babysitters Online for All Occasions</p>
                 <NavLink to="/nannies">
-                <button onClick={handleClick} className={css.homeBtn} type='submit'>
+                    <button style={{
+                        backgroundColor: 'var(--color-primary)',
+                      }} onClick={handleClick} className={css.homeBtn} type='submit'>
                     Get started
                     <svg className={css.homeIcon} width="15" height="17">
                         <use className={css.defaultIcon} href="/icons.svg#icon-arrow-top"></use>
@@ -27,11 +30,14 @@ export default function Home() {
                     </button>
                 </NavLink>
                 {loading && <Loader/>} {""}
-                </div>
-            <img className={css.homeImg} src='/hero-bg-1x.jpg' />
+            </div>
+            <div>
+                <img className={css.homeImg} src='/hero-bg-1x.jpg' />
+                <ThemeSwitcher />
+            </div>
             <div className={css.experienced}>
-                <div className={css.check}>
-                <svg className={css.checkIcon} width="20" height="16">
+                <div className={css.check} style={{ backgroundColor: 'var(--color-primary)' }}>
+                    <svg className={css.checkIcon} width="20" height="16">
                     <use className={css.feCheck} href="/icons.svg#icon-fe_check"></use>
                 </svg>
                 </div>
@@ -40,6 +46,7 @@ export default function Home() {
                 <p className={css.numberExperienced}>15,000</p>
                 </div>
             </div>
+   
           <hr className={css.divider} />
         </div>
     );

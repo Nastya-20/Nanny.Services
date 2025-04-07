@@ -5,20 +5,20 @@ import css from './Navigation.module.css';
 
 export default function Navigation() {
     const location = useLocation();
-    const { user, loading } = useAuth(); // Отримуємо користувача
+    const { user, loading } = useAuth(); 
 
     const isFixed = location.pathname === "/";
 
     return (
         <header className={isFixed ? `${css.headerContainer} ${css.fixed}` : css.headerContainer}>
             <nav className={css.nav}>
-            <NavLink to="/" className={css.navTitle}>Nanny.Services</NavLink>
+                <NavLink to="/" className={css.navTitle}>Nanny.Services</NavLink>
                 <button type="button" className={css.openMenuBtn}>
                     <svg className={css.openMenuIcons} width="32" height="32">
                         <use href="/icons.svg#icon-menu"></use>
                     </svg>
                 </button>
-                    <div className={css.navigation}>
+                <div className={css.navigation}>
                     <NavLink to="/" className={({ isActive }) => isActive ? css.active : css.link}>
                         Home
                     </NavLink>
@@ -34,8 +34,8 @@ export default function Navigation() {
                 </div>
                 <div className={css.navUserMenu}>
                     <UserMenu />
-                    </div>
-             </nav>
+                </div>
+            </nav>
         </header>
     );
 }

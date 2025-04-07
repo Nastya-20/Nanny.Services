@@ -23,7 +23,7 @@
 }
 
 .customSelect {
-    background-color: #F03F3B;
+    background-color: var(--color-primary);
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -105,7 +105,7 @@
     flex-shrink: 0;
     background-color: #fbfbfb;
     border-radius: 30px;
-    border: 2px solid rgba(240, 63, 59, 0.2);
+    border: 2px solid var(--color-hover-primary);
 }
 
 .statusWrapper {
@@ -157,6 +157,7 @@
 
 .detailsLink {
     display: flex;
+    justify-content: space-between;
     gap: 16px;
     min-width: 495px;
     height: 24px;
@@ -198,12 +199,15 @@
     width: 26px;
     height: 26px;
     fill: #fafafa;
-    stroke: #F03F3B;
+    stroke: var(--color-primary);
 }
-
+.iconHeart:hover {
+    fill: var(--color-primary);
+    stroke: var(--color-primary);
+}
 .iconHeartActive {
-    fill: #F03F3B;
-    stroke: #F03F3B;
+    fill: var(--color-primary);
+    stroke: var(--color-primary);
 }
 
 .line {
@@ -261,7 +265,7 @@
 
 }
 
-/* Кнопка Read more */
+/* Кнопка Read more*/
 
 .readMore {
     background-color: transparent;
@@ -271,7 +275,7 @@
     line-height: 150%;
     text-decoration: underline;
     color: #11101c;
-}
+} 
 
 
 .selected {
@@ -310,12 +314,12 @@ width: 482px;
     border-radius: 100px;
     width: 44px;
     height: 44px;
-    background: rgba(240, 63, 59, 0.2);
+    background: var(--color-hover-primary);
     padding: 12px 14px;
     font-weight: 500;
     font-size: 20px;
     line-height: 100%;
-    color: #f03f3b;
+    color: var(--color-primary);
 }
 
 .reviewName {
@@ -343,7 +347,7 @@ width: 482px;
     padding: 14px 28px;
     width: 215px;
     height: 48px;
-    background: #f03f3b;
+    background: var(--color-primary);
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -353,7 +357,7 @@ width: 482px;
 }
 .openModalBtn:hover,
 .openModalBtn:focus {
-    color: #F03F3B;
+    color: var(--color-primary);
     background-color: #fbfbfb;
-    border: 1px solid #F03F3B;
+    border: 1px solid var(--color-primary);
 }

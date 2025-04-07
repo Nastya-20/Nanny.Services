@@ -1,6 +1,6 @@
 .container {
     height: 456px;
-    background-color: #F03F3B;
+    background-color: var(--color-primary);
     border-radius: 0 0 30px 30px;
     margin: 0 auto;
     margin-top: 20px;
@@ -175,6 +175,7 @@
     }
 
     .homeImg {
+        position: relative;
         border-radius: 0 30px 30px 0;
         width: 699px;
         height: 736px;
@@ -201,7 +202,7 @@
         width: 54px;
         height: 54px;
         padding: 12px;
-        background-color: #F03F3B;
+        background-color: var(--color-primary);
     }
 
     .checkIcon {

@@ -68,7 +68,7 @@ const RegistrationForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
                     </svg>
                 </div>
             </div>
-            <button className={css.buttonForm} type="submit">Sign Up</button>
+            <button  className={css.buttonForm} type="submit">Sign Up</button>
         </form>
     );
 };
