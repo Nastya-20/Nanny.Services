@@ -17,7 +17,7 @@
 📌 Технічне завдання
 Застосунок має три сторінки:
 
-Home — головна сторінка з назвою сайту, слоганом, кнопкою-посиланням до сторінки нянь.
+Home — головна сторінка з назвою сайту, слоганом, кнопкою-посиланням до сторінки нянь. Можливість зміни теми.
 
 Nannies — сторінка з переліком нянь, сортуванням та фільтрами.
 
@@ -36,25 +36,10 @@ Favorites — приватна сторінка з обраними нянями
 Няні зберігаються у Firebase Realtime Database
 
 Структура колекції:
+![json](./assets/image-2.png)
 
-json
-{
-  "name": "Jane Doe",
-  "avatar_url": "https://...",
-  "birthday": "1990-05-12",
-  "experience": "5 років",
-  "reviews": [...],
-  "education": "Вища педагогічна",
-  "kids_age": "0-5",
-  "price_per_hour": 12,
-  "location": "Київ",
-  "about": "Працюю з дітьми понад 5 років...",
-  "characters": ["добра", "турботлива"],
-  "rating": 4.8
-}
 📄 Функціонал:
 Сортування: за іменем, ціною, рейтингом
-
 Фільтрація за ціною
 
 Картки няні з кнопками Read more, Make an appointment та серцем (обране)
@@ -68,37 +53,6 @@ Favorites — приватна сторінка для перегляду обр
 Збереження обраного після оновлення сторінки
 
 Обробка неавторизованого користувача (повідомлення)
-
-📁 Структура проєкту
-bash
-
-babysitters-app/
-├── public/
-├── src/
-│   ├── assets/               # Зображення, іконки
-│   ├── components/           
-│   │   ├── BabysitterCard/   # Компонент картки няні
-│   │   ├── Modal/            # Базове модальне вікно
-│   │   ├── AuthForm/         # Форми логіну/реєстрації
-│   │   ├── AppointmentForm/  # Форма зустрічі
-│   │   └── Header/           
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── Nannies.jsx
-│   │   └── Favorites.jsx
-│   ├── services/
-│   │   └── firebase.js       # Ініціалізація Firebase
-│   ├── contexts/
-│   │   └── AuthContext.jsx
-│   ├── hooks/
-│   ├── routes/
-│   │   └── PrivateRoute.jsx
-│   ├── App.jsx
-│   └── main.jsx
-├── .env
-├── vite.config.js
-└── README.md
-
 
 🧑‍💻 Технології
 React + Vite
@@ -147,7 +101,7 @@ npm run dev
 📚 Компонентний підхід без надлишкових коментарів
 
 🧠 Автор
-Asya | GitHub: @Nastya-20
+Anastasiia Tolmachova | GitHub: @Nastya-20
 https://github.com/Nastya-20/Nanny.Services
 
 
