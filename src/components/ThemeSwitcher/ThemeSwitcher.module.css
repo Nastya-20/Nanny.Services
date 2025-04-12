@@ -1,17 +1,17 @@
 .themeWrap {
     position: absolute;
-    top: 100px;
-    right: 50px;
+    top: 45%;
+    left: 55%;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 5px;
     margin: 0;
 }
 
-.themeTitle{
+.themeTitle {
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: 400;
+    font-size: 14px;
     line-height: 111%;
     color: #fbfbfb;
 }
@@ -27,4 +27,28 @@
     line-height: 129%;
     background-color: #fbfbfb;
     color: var(--color-primary);
+}
+
+@media screen and (min-width: 375px) {
+    .themeWrap {
+        top: 50%;
+        left: 63%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .themeWrap {
+        top: 55%;
+        left: 78%;
+        gap: 10px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .themeWrap {
+        width: 100px;
+        top: 15%;
+        left: 88%;
+        gap: 16px;
+    }
 }

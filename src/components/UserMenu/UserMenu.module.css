@@ -1,9 +1,8 @@
 .userMenu {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 300px;
-    height: 48px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .loginBtn {
@@ -18,7 +17,7 @@
     line-height: 125%;
     letter-spacing: -0.01em;
     color: #fbfbfb;
-    background-color: transparent;
+    background-color: var(--color-primary);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -59,6 +58,17 @@
     background-color: #fbfbfb;
     color: var(--color-primary);
 }
+
+@media screen and (min-width: 1440px) {
+
+    .userMenu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        width: 300px;
+        height: 48px;
+    }
 
 /* modal */
 .login {
@@ -171,4 +181,5 @@
 .logout:active {
     background-color: #fbfbfb;
     color: var(--color-primary);
+}
 }

@@ -1,9 +1,9 @@
 .wrapperNannies {
-    width: 1440px;
-    min-height: 1488px;
+    min-width: 290px;
+    min-height: 800px;
     background: #F3F3F3;
-    padding: 64px 128px;
-    margin: 0 auto;
+    padding-top: 35px;
+    margin: 0 15px;
 }
 
 /* стилі для вибору елементів */
@@ -85,11 +85,7 @@
 /* деталі няні */
 
 .detailsNannies {
-    display: flex;
-    gap: 24px;
     border-radius: 24px;
-    padding: 24px;
-    max-width: 1184px;
     height: auto;
     background-color: #fbfbfb;
     margin-bottom: 32px;
@@ -137,13 +133,10 @@
     object-fit: cover;
     overflow: hidden;
 }
-
+.detailsLink {
+    min-width: 288px;
+}
 .detailsItems {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 998px;
-    height: 24px;
     margin-bottom: 8px;
 }
 
@@ -153,14 +146,7 @@
     font-size: 16px;
     line-height: 150%;
     color: #8a8a89;
-}
-
-.detailsLink {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    min-width: 495px;
-    height: 24px;
+    margin: 20px 0;
 }
 
 .detailsText {
@@ -172,6 +158,7 @@
     font-size: 16px;
     line-height: 150%;
     color: #11101c;
+    margin-bottom: 10px;
 }
 
 .iconStar {
@@ -211,7 +198,7 @@
 }
 
 .line {
-    color: #d1d1c7;
+   display: none;
 }
 
 .nameNanny {
@@ -224,23 +211,20 @@
 }
 
 .infoNanny{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 8px;
     margin-bottom: 24px;
 }
 
 .info {
-    min-width: 88px;
     border-radius: 24px;
-    height: 40px;
+    min-height: 40px;
     padding: 8px 16px;
     background-color: #f3f3f3;
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     color: #11101C;
+    margin-bottom: 8px;
 }
 
 .underlined {
@@ -275,6 +259,7 @@
     line-height: 150%;
     text-decoration: underline;
     color: #11101c;
+    margin-bottom: 24px;
 } 
 
 
@@ -294,7 +279,6 @@
 }
 
 .reviewsList {
-width: 482px;
     min-height: 80px;
 }
 
@@ -354,10 +338,93 @@ width: 482px;
     line-height: 125%;
     letter-spacing: -0.01em;
     color: #fbfbfb;
+    margin-bottom: 24px;
 }
 .openModalBtn:hover,
 .openModalBtn:focus {
     color: var(--color-primary);
     background-color: #fbfbfb;
     border: 1px solid var(--color-primary);
+}
+
+@media screen and (min-width: 375px) {
+.wrapperNannies {
+        margin: 0 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .wrapperNannies {
+        margin: 0 32px;
+    }
+
+    .filtersNannies {
+        margin-left: 5px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .wrapperNannies {
+        width: 1440px;
+        min-height: 1488px;
+        padding: 64px 128px;
+        margin: 0 auto;
+    }
+
+    .detailsNannies {
+        display: flex;
+        gap: 24px;
+        border-radius: 24px;
+        padding: 24px;
+        max-width: 1184px;
+    }
+
+    .detailsItems {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 998px;
+        height: 24px;
+        margin: 0;
+        margin-bottom: 8px;
+    }
+
+    .detailsLink {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        min-width: 495px;
+        height: 24px;
+    }
+
+    .line {
+        color: #d1d1c7;
+    }
+
+    .detailsText {
+        margin: 0;
+    }
+        .infoNanny {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 8px;
+            margin-bottom: 24px;
+        }
+    
+        .info {
+            min-width: 88px;
+            border-radius: 24px;
+            height: 40px;
+            padding: 8px 16px;
+            background-color: #f3f3f3;
+            font-family: "Helvetica Neue", sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 150%;
+            color: #11101C;
+        }
+
+        .reviewsList {
+            width: 482px;
+        }
 }

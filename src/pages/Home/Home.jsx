@@ -19,9 +19,7 @@ export default function Home() {
                 <h1 className={css.homeName}>Make Life Easier for the Family:</h1>
                 <p className={css.homeText}>Find Babysitters Online for All Occasions</p>
                 <NavLink to="/nannies">
-                    <button style={{
-                        backgroundColor: 'var(--color-primary)',
-                      }} onClick={handleClick} className={css.homeBtn} type='submit'>
+                    <button onClick={handleClick} className={css.homeBtn} type='submit'>
                     Get started
                     <svg className={css.homeIcon} width="15" height="17">
                         <use className={css.defaultIcon} href="/icons.svg#icon-arrow-top"></use>

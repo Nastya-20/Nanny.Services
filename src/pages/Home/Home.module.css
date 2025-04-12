@@ -1,24 +1,26 @@
 .container {
-    height: 456px;
+    display: flex;
+    flex-direction: column;
+    min-width: 290px;
+    min-height: 500px;
     background-color: var(--color-primary);
     border-radius: 0 0 30px 30px;
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: 0 15px;
 }
 
 .homeTitle {
-    height: 288px;
-    padding: 25px 15px 0 15px;
+    min-height: 288px;
+    padding: 35px 15px 0 15px;
 }
 
 .homeName {
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 36px;
     line-height: 100%;
     letter-spacing: -0.03em;
     color: #fbfbfb;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 .homeText {
@@ -28,7 +30,7 @@
     line-height: 105%;
     letter-spacing: -0.02em;
     color: #fbfbfb;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
 }
 
 .homeBtn {
@@ -49,6 +51,53 @@
     justify-content: space-between;
     gap: 18px;
     position: relative;
+}
+
+.homeImg {
+    position: relative;
+    border-radius: 0 0 30px 30px;
+}
+
+.experienced {
+    position: absolute;
+    bottom: 30%;
+    left: 40%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    width: 154px;
+    border-radius: 20px;
+    height: 80px;
+    background-color: #fbfbfb;
+}
+
+.check {
+    border-radius: 13px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background-color: var(--color-primary);
+}
+
+.checkIcon {
+    fill: #fbfbfb;
+    width: 25px;
+    height: 25px;
+}
+
+.textExperienced {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(17, 16, 28, 0.5);
+}
+
+.numberExperienced {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #11101c;
 }
 
 .defaultIcon {
@@ -77,55 +126,111 @@
     display: block;
 }
 
-.homeImg {
-    border-radius:  0 0 30px 30px;
+.divider {
+    position: absolute;
+    top: 88px;
+    min-width: 290px;
+    height: 2px;
+    background-color: rgba(251, 251, 25, 0.4);
 }
 
- .divider {
-     position: absolute;
-     top: 88px;
-     width: 280px;
-     height: 2px;
-     background-color: rgba(251, 251, 25, 0.4);
- }
-
 @media screen and (min-width: 375px) {
-
+    .container {
+        margin: 0 20px;
+    }
     .homeTitle {
-        height: 290px;
+        min-height: 295px;
+        padding: 20px;
+    }
+
+    .homeName {
+        margin-bottom: 35px;
+    }
+
+    .homeText {
+        margin-bottom: 40px;
     }
 
     .divider {
-        width: 335px;
+        min-width: 335px;
     }
 
-    .homeImg {
-        height: 374px;
+    .experienced {
+        bottom: 20%;
+        left: 49%;
     }
+
 }
 
 @media screen and (min-width: 768px) {
+    .container {
+        margin: 0 32px;
+    }
 
     .homeImg {
-        height: 464px;
+        height: 295px;
     }
 
     .homeTitle {
-        height: 200px;
-
+        height: 353px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px;
     }
-        .homeName{
+
+    .homeName {
+        width: 517px;
+        font-weight: 500;
+        font-size: 70px;
+        margin: 0;
+    }
+
+    .homeText {
+        font-size: 28px;
+        line-height: 107%;
         margin-bottom: 20px;
-        }
-                .homeText{
-                    margin-bottom: 20px;
-                }
+    }
+
+
+    .homeBtn {
+        padding: 18px 45px;
+        width: 230px;
+        height: 60px;
+    }
+
+    .experienced {
+        bottom: 16%;
+        left: 55%;
+        padding: 32px;
+        width: 284px;
+        height: 118px;
+    }
+
+    .check {
+        width: 54px;
+        height: 54px;
+        padding: 12px;
+    }
+
+    .checkIcon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .textExperienced {
+        font-size: 16px;
+    }
+
+    .numberExperienced {
+        font-weight: 700;
+        font-size: 24px;
+    }
 
     .divider {
-        width: 704px;
-        top: 98px;
+        min-width: 704px;
+        top: 120px;
     }
-
 }
 
 @media screen and (min-width: 1440px) {
@@ -134,103 +239,47 @@
         width: 1376px;
         height: 736px;
         display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
         gap: 64px;
-        margin: 0 auto;
         border-radius: 30px;
+        margin: 0 auto;
         margin-top: 32px;
     }
 
     .homeTitle {
-        width: 517px;
-        height: 322px;
+        padding: 0;
         margin: 163px 0 163px 96px;
     }
 
     .homeName {
-        width: 517px;
-        font-weight: 500;
-        font-size: 70px;
-        line-height: 100%;
-        letter-spacing: -0.03em;
-        color: #fbfbfb;
-        margin-bottom: 28px;
+        margin-bottom: 8px;
     }
 
     .homeText {
-        font-family: "Helvetica Neue", sans-serif;
-        font-weight: 400;
         font-size: 28px;
         line-height: 107%;
-        letter-spacing: -0.02em;
-        color: #fbfbfb;
-        margin-bottom: 64px;
-    }
-
-    .homeBtn {
-        padding: 18px 45px;
-        width: 230px;
-        height: 60px;
+        margin-bottom: 44px;
     }
 
     .homeImg {
-        position: relative;
         border-radius: 0 30px 30px 0;
         width: 699px;
         height: 736px;
-        position: relative;
         background: no-repeat center/cover;
     }
 
     .experienced {
-        position: absolute;
-        bottom: 60px;
-        right: 50px;
         left: 75%;
-        display: flex;
-        gap: 16px;
-        padding: 32px;
-        width: 284px;
-        border-radius: 20px;
-        height: 118px;
-        background-color: #fbfbfb;
     }
 
-    .check {
-        border-radius: 13px;
-        width: 54px;
-        height: 54px;
-        padding: 12px;
-        background-color: var(--color-primary);
-    }
 
-    .checkIcon {
-        fill: #fbfbfb;
-        width: 30px;
-        height: 30px;
-    }
-
-    .textExperienced {
-        font-family: "Helvetica Neue", sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-        color: rgba(17, 16, 28, 0.5);
-    }
-
-.numberExperienced {
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    color: #11101c;
-}
 
     .divider {
-        position: absolute;
-        top: 88px;
         left: 0;
+        top: 98px;
         width: 100%;
         height: 2px;
-        background-color: rgba(251, 251, 25, 0.4);
     }
 }
