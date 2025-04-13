@@ -1,5 +1,5 @@
 form {
-    width: 438px;
+    min-width: 288px;
     min-height: 126px;
 }
 
@@ -97,4 +97,14 @@ input::placeholder {
 input:hover,
 input:focus {
     outline: none;
+}
+
+@media screen and (min-width: 375px) {
+
+}
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1440px) {
+
 }

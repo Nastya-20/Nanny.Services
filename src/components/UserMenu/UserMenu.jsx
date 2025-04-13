@@ -11,7 +11,7 @@ import {
 import LoginForm from "../LoginForm/LoginForm";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import { auth } from "../../firebase";
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from "./UserMenu.module.css";
 
@@ -22,7 +22,7 @@ export default function UserMenu() {
     const [error, setError] = useState("");
     const [user, setUser] = useState(null);
 
-     const handleRegister = async ({ name, email, password }) => {
+    const handleRegister = async ({ name, email, password }) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const newUser = userCredential.user;
@@ -31,16 +31,17 @@ export default function UserMenu() {
                 displayName: name
             });
             await signInWithEmailAndPassword(auth, email, password);
-            toast.success("User registered  in successfully!");
-
-            navigate('/nannies');
-            setIsRegisterOpen(false);
+            toast.success(`User registered  in successfully! Welcome, ${ userName }`);
+            setTimeout(() => {
+                setIsRegisterOpen(false);
+                navigate('/nannies');
+            }, 300);
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
                 toast.error("This email is already in use. Please log in.");
                 setIsRegisterOpen(false);
                 setIsLoginOpen(true);
-            } throw error;
+            } setError(error.message);
         }
     };
 
@@ -58,13 +59,17 @@ export default function UserMenu() {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const loggedInUser = userCredential.user;
             const userName = loggedInUser.displayName || email;  // Якщо ім'я не задано, використовуємо email
-           
-            toast.success(`User logged in successfully!, Welcome, ${ userName }`);
-            // Перехід на сторінку нянь
-            navigate('/nannies');
 
+            toast.success(`User logged in successfully!, Welcome, ${userName}`);
+            // Перехід на сторінку нянь
+            setTimeout(() => {
+                setIsLoginOpen(false);
+                setError("");
+                navigate('/nannies');
+            }, 300);
         } catch (error) {
             toast.error("Login error:" + error.message);
+            setError(error.message);
         }
     };
 
@@ -72,7 +77,7 @@ export default function UserMenu() {
         try {
             await signOut(auth);
             toast.success("Logged out successfully!");
-             navigate('/nannies');
+            navigate('/nannies');
         } catch (error) {
             toast.error("Logout failed. Please try again.");
         }
@@ -117,11 +122,11 @@ export default function UserMenu() {
                     </div>
                 ) : (
                     <>
-                            <button className={css.loginBtn} type="button" onClick={() => { setError(""); setIsLoginOpen(true); }}>
+                        <button className={css.loginBtn} type="button" onClick={() => { setError(""); setIsLoginOpen(true); }}>
                             Log in
                         </button>
 
-                            <button  className={css.registrationBtn} type="button" onClick={() => { setError(""); setIsRegisterOpen(true); }}>
+                        <button className={css.registrationBtn} type="button" onClick={() => { setError(""); setIsRegisterOpen(true); }}>
                             Registration
                         </button>
                     </>
@@ -135,7 +140,14 @@ export default function UserMenu() {
                         Welcome back! Please enter your credentials
                         to access your account and continue your babysitter search.</p>
                     {error && <p className={css.errorText}>{error}</p>}
-                    <LoginForm onSubmit={handleLogin} onClose={() => setIsLoginOpen(false)} onSwitchToLogin={setIsRegisterOpen} />
+                    <LoginForm
+                        onSubmit={handleLogin}
+                        onClose={() => setIsLoginOpen(false)}
+                        onSwitchToLogin={() => {
+                            setIsLoginOpen(false);
+                            setIsRegisterOpen(true);
+                        }}
+ />
                 </AuthModal>
             )}
 
@@ -147,7 +159,10 @@ export default function UserMenu() {
                         we need some information. Please provide us with
                         the following information.</p>
                     {error && <p className={css.errorText}>{error}</p>}
-                    <RegistrationForm onSubmit={handleRegister} onClose={() => setIsRegisterOpen(false)} onSwitchToLogin={handleSwitchToLogin} />
+                    <RegistrationForm
+                        onSubmit={handleRegister}
+                        onClose={() => setIsRegisterOpen(false)}
+                        onSwitchToLogin={handleSwitchToLogin} />
                 </AuthModal>
             )}
         </>

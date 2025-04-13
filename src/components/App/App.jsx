@@ -25,18 +25,7 @@ export default function App() {
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>
-            <ToastContainer
-                position="top"
-                autoClose={1000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-            />
+            <ToastContainer autoClose={3000} />
         </>
     );
 }
