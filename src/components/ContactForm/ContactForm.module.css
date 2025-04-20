@@ -17,7 +17,7 @@
     border-radius: 30px;
     position: relative;
     overflow-y: auto;
-    top: 150px;
+    top: 200px;
     min-width: 290px;
     min-height: 800px;
     padding: 40px 20px;
@@ -341,6 +341,7 @@ textarea:focus {
         .modalContact {
             background: #fbfbfb;
             border-radius: 30px;
+            top: 150px;
             position: relative;
             width: 600px;
             height: 908px;
