@@ -104,6 +104,17 @@ export default function UserMenu() {
         setIsLoginOpen(true);
     };
 
+        useEffect(() => {
+            if (isLoginOpen || isRegisterOpen) {
+                document.body.style.overflow = "hidden";
+            } else {
+                document.body.style.overflow = "auto";
+            }
+            return () => {
+                document.body.style.overflow = "auto"; 
+            };
+        }, [isLoginOpen, isRegisterOpen]);
+
 
     return (
         <>

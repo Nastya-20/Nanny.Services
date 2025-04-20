@@ -9,16 +9,19 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-     overflow: scroll;
+    z-index: 999;
+    overflow-y: auto;
 }
 .modalContact {
     background: #fbfbfb;
     border-radius: 30px;
     position: relative;
+    overflow-y: auto;
     top: 150px;
     min-width: 290px;
     min-height: 800px;
     padding: 40px 20px;
+    z-index: 1000;
 }
 
 .closeBtn {

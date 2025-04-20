@@ -165,7 +165,18 @@ export default function Favorites() {
         return sorted;
     };
 
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+        return () => {
+            document.body.style.overflow = "auto"; 
+        };
+    }, [isModalOpen]);
 
+    
     return (
         <div className={css.wrapperNannies}>
             <p className={css.filtersNannies}>Filters</p>
