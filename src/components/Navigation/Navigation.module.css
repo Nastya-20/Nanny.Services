@@ -95,16 +95,20 @@
         padding: 0;
     }
 
-    .nav {
-        gap: 0;
-        margin: 0 auto;
-    }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0;
+            margin: 0 auto;
+        }
 
     .navigation {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 40px;
-        margin-right: 92px;
+       margin-right: 80px; 
     }
 
     .active {
@@ -137,7 +141,7 @@
         width: 164px;
         height: 28px;
         font-size: 24px;
-        margin-right: 487px;
+         margin-right: 487px; 
     }
 
     .navUserMenu {
