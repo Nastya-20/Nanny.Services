@@ -68,8 +68,8 @@
 
 .loginTitle {
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 40px;
+    font-weight: 600;
+    font-size: 28px;
     line-height: 120%;
     letter-spacing: -0.02em;
     color: #11101c;
@@ -79,8 +79,8 @@
 .loginText {
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 125%;
+    font-size: 14px;
+    line-height: 150%;
     color: rgba(17, 16, 28, 0.5);
     margin-bottom: 40px;
 }
@@ -92,8 +92,8 @@
 
 .registrationTitle {
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 40px;
+    font-weight: 600;
+    font-size: 28px;
     line-height: 120%;
     letter-spacing: -0.02em;
     color: #11101c;
@@ -103,7 +103,7 @@
 .registrationText {
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 125%;
     color: rgba(17, 16, 28, 0.5);
     margin-bottom: 40px;
@@ -124,7 +124,6 @@
 .userIconWrap {
     border-radius: 10px;
     padding: 8px;
-    margin-right: 15px;
     width: 40px;
     height: 40px;
     background-color: var(--color-primary);
@@ -149,7 +148,7 @@
     border-radius: 30px;
     border: 1px solid rgba(251, 251, 251, 0.4);
     padding: 14px 19px;
-    min-width: 202px;
+    min-width: 220px;
     height: 48px;
     background-color: var(--color-primary);
     font-family: "Helvetica Neue", sans-serif;
@@ -172,128 +171,108 @@
     color: var(--color-primary);
 }
 
+@media screen and (min-width: 375px) {
+    .loginTitle {
+        font-family: "Helvetica Neue", sans-serif;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 120%;
+        letter-spacing: -0.02em;
+        color: #11101c;
+        margin-bottom: 20px;
+    }
+        .registrationTitle {
+            font-family: "Helvetica Neue", sans-serif;
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 120%;
+            letter-spacing: -0.02em;
+            color: #11101c;
+            margin-bottom: 20px;
+        }
+}
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 768px) {
 
     .userMenu {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 8px;
-        width: 300px;
-        height: 48px;
+            gap: 8px;
+            margin: 0;
+        }
+
+    .userName {
+        margin: 0;
     }
 
-/* modal */
-.login {
-    border-radius: 30px;
-    width: 565px;
-    height: 489px;
-}
+    .userIconWrap {
+        margin: 0;
+    }
 
-.loginTitle {
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 120%;
-    letter-spacing: -0.02em;
-    color: #11101c;
-    margin-bottom: 20px;
-}
+    /* modal */
+    .login {
+        border-radius: 30px;
+        width: 565px;
+        height: 489px;
+    }
 
-.loginText {
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 125%;
-    color: rgba(17, 16, 28, 0.5);
-    margin-bottom: 40px;
-}
+    .loginTitle {
+        font-weight: 500;
+        font-size: 40px;
+    }
 
-.registration {
-    width: 438px;
-    min-height: 126px;
-}
+    .loginText {
+        font-family: "Helvetica Neue", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 125%;
+    }
 
+    .registration {
+        width: 438px;
+        min-height: 126px;
+    }
 .registrationTitle {
-    font-family: "Helvetica Neue", sans-serif;
     font-weight: 500;
     font-size: 40px;
-    line-height: 120%;
-    letter-spacing: -0.02em;
-    color: #11101c;
-    margin-bottom: 20px;
+}
+    .registrationText {
+        font-size: 16px;
+    }
+
+    .wrapperLogout {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .displayName {
+        font-size: 16px;
+    }
+
 }
 
-.registrationText {
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 125%;
-    color: rgba(17, 16, 28, 0.5);
-    margin-bottom: 40px;
-}
+@media screen and (min-width: 1440px) {
+    .userMenu {
+        flex-direction: row;
+    }
 
-.wrapperLogout {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
+    .userIconWrap {
+        border-radius: 10px;
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        background-color: #fbfbfb;
 
-.userName {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-right: 24px;
-}
+    }
 
-.userIconWrap {
-    border-radius: 10px;
-    padding: 8px;
-    width: 40px;
-    height: 40px;
-    background-color: #fbfbfb;
-}
+    .wrapperLogout {
+        flex-direction: row;
+    }
 
-.userIcon {
-    width: 24px;
-    height: 24px;
-   fill: var(--color-primary);
-}
+    .userIcon {
+        fill: var(--color-primary);
+    }
 
-.displayName {
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 111%;
-    letter-spacing: -0.01em;
-    color: #fbfbfb;
-}
-
-.logout {
-    border-radius: 30px;
-    border: 1px solid rgba(251, 251, 251, 0.4);
-    padding: 14px 19px;
-    width: 134px;
-    height: 48px;
-    background-color: transparent;
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 125%;
-    letter-spacing: -0.01em;
-    color: #fbfbfb;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.logout:hover,
-.logout:focus {
-    background-color: #fbfbfb;
-    color: var(--color-primary);
-}
-
-.logout:active {
-    background-color: #fbfbfb;
-    color: var(--color-primary);
-}
+    .displayName {
+        color: #fbfbfb;
+    }
 }

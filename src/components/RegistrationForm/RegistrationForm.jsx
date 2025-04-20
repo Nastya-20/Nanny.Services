@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerSchema } from '../AuthModal/authSchema';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import css from './RegistrationForm.module.css';
 
 const RegistrationForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
@@ -16,14 +14,9 @@ const RegistrationForm = ({ onSubmit, onClose, onSwitchToLogin }) => {
         try {
             await onSubmit(data);
             onClose();
-            reset(),
-            onSwitchToLogin(data);
-
+            reset();
         } catch (error) {
-             toast.error("Registration failed. Please try again.");
-            if (error.code === 'auth/email-already-in-use') {
-                onSwitchToLogin();
-            }
+            onSwitchToLogin();
         }
     };
 

@@ -25,7 +25,7 @@ export default function App() {
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>
-            <ToastContainer autoClose={3000} />
+            <ToastContainer autoClose={1000} />
         </>
     );
 }

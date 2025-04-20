@@ -31,65 +31,66 @@ export default function UserMenu() {
                 displayName: name
             });
             await signInWithEmailAndPassword(auth, email, password);
-            toast.success(`User registered  in successfully! Welcome, ${ userName }`);
+          
+            toast.success(`User registered  in successfully! Welcome, ${name}`);
+      
             setTimeout(() => {
                 setIsRegisterOpen(false);
                 navigate('/nannies');
             }, 300);
         } catch (error) {
-            if (error.code === 'auth/email-already-in-use') {
-                toast.error("This email is already in use. Please log in.");
+            if (error.code === "auth/email-already-in-use") {
+                setError("This email is already in use. Please log in.");
                 setIsRegisterOpen(false);
                 setIsLoginOpen(true);
-            } setError(error.message);
+            } else {
+                setError("Registration failed. Please try again.");
+            }
         }
     };
 
+
     const handleLogin = async ({ email, password }) => {
         try {
-            // Перевірка, чи вже залогінений користувач
-            if (user) {
-                const userName = user.displayName || email;  // Якщо ім'я не задано, використовуємо email
-                toast.error(`User logged in as: ${userName}`);
-                navigate('/nannies');
-                return;
-            }
-
-            // Логін користувача
+             // Логін користувача
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const loggedInUser = userCredential.user;
             const userName = loggedInUser.displayName || email;  // Якщо ім'я не задано, використовуємо email
-
             toast.success(`User logged in successfully!, Welcome, ${userName}`);
+        
             // Перехід на сторінку нянь
             setTimeout(() => {
                 setIsLoginOpen(false);
                 setError("");
                 navigate('/nannies');
-            }, 300);
+            });
+     
         } catch (error) {
-            toast.error("Login error:" + error.message);
-            setError(error.message);
+            if (error.code === "auth/user-not-found") {
+                setError("This user doesn't exist. Please register first.");
+            } else if (error.code === "auth/wrong-password") {
+                setError("Incorrect password. Please try again.");
+            } else {
+                setError("Login failed. Please try again.");
+            }
         }
     };
+
 
     const handleLogout = async () => {
         try {
             await signOut(auth);
             toast.success("Logged out successfully!");
+        
             navigate('/nannies');
-        } catch (error) {
-            toast.error("Logout failed. Please try again.");
+          } catch (error) {
+           toast.error("Logout failed. Please try again.");
         }
     };
 
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (authUser) => {
-            if (authUser) {
-                setUser(authUser);
-            } else {
-                setUser(null);
-            }
+            setUser(authUser || null);
         });
 
         return () => {
@@ -97,6 +98,7 @@ export default function UserMenu() {
         };
     }, []);
 
+   
     const handleSwitchToLogin = () => {
         setIsRegisterOpen(false);
         setIsLoginOpen(true);
@@ -122,11 +124,11 @@ export default function UserMenu() {
                     </div>
                 ) : (
                     <>
-                        <button className={css.loginBtn} type="button" onClick={() => { setError(""); setIsLoginOpen(true); }}>
+                        <button className={css.loginBtn} type="button" onClick={() => {  setIsLoginOpen(true); }}>
                             Log in
                         </button>
 
-                        <button className={css.registrationBtn} type="button" onClick={() => { setError(""); setIsRegisterOpen(true); }}>
+                        <button className={css.registrationBtn} type="button" onClick={() => {  setIsRegisterOpen(true); }}>
                             Registration
                         </button>
                     </>

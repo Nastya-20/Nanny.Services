@@ -16,8 +16,8 @@ form {
     border: 1px solid rgba(18, 20, 23, 0.1);
     border-radius: 12px;
     padding: 16px 18px;
-    width: 438px;
-    height: 54px;
+    width: 220px;
+    height: 44px;
     margin-bottom: 18px;
  }
 
@@ -25,8 +25,8 @@ form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 438px;
-    min-height: 52px;
+    width: 220px;
+    min-height: 44px;
 }
 
 .inputInner {
@@ -38,18 +38,18 @@ form {
     border: 1px solid rgba(18, 20, 23, 0.1);
     border-radius: 12px;
     padding: 16px 18px;
-    width: 438px;
-    height: 54px;
+    width: 220px;
+    height: 44px;
     margin-bottom: 40px;
     padding-right: 40px;
 }
 .iconEye {
     position: absolute;
-    top: 30%;
+    top: 25%;
     right: 18px;
     transform: translateY(-50%); 
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     stroke: #121417;
     fill: #fbfbfb;
     cursor: pointer;
@@ -57,7 +57,7 @@ form {
 .buttonForm {
     border-radius: 30px;
     padding: 16px 19px;
-    width: 438px;
+    width: 220px;
     height: 52px;
     background-color: var(--color-primary);
     color: #fbfbfb;
@@ -89,7 +89,7 @@ form {
 input::placeholder {
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 137%;
     color: #121417;
 }
@@ -100,11 +100,51 @@ input:focus {
 }
 
 @media screen and (min-width: 375px) {
+    .emailForm {
+        width: 277px;
+    }
 
+    .inputWrapper {
+        width: 277px;
+    }
+
+    .passwordForm {
+        width: 277px;
+    }
+
+    .buttonForm {
+        width: 277px;
+    }
 }
+
 @media screen and (min-width: 768px) {
+    .emailForm {
+        width: 438px;
+        height: 54px;
+      }
 
-}
-@media screen and (min-width: 1440px) {
+    .inputWrapper {
+        width: 438px;
+        min-height: 52px;
+    }
 
+      .passwordForm {
+        width: 438px;
+        height: 54px;
+    }
+
+    .iconEye {
+        top: 30%;
+        right: 18px;
+        width: 20px;
+        height: 20px;
+     }
+
+    .buttonForm {
+        width: 438px;
+    }
+
+    input::placeholder {
+        font-size: 16px;
+    }
 }

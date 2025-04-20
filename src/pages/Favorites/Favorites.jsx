@@ -170,7 +170,7 @@ export default function Favorites() {
         <div className={css.wrapperNannies}>
             <p className={css.filtersNannies}>Filters</p>
             <div className={css.customSelectWrapper}>
-                <div style={{ backgroundColor: 'var(--color-primary)' }} className={css.customSelect} onClick={toggleDropdown}>
+                <div  className={css.customSelect} onClick={toggleDropdown}>
                     <span>{selectedOption}</span>
                     <span className={css.arrow}></span>
                 </div>
@@ -200,6 +200,9 @@ export default function Favorites() {
                 return (
                     <div key={nanny.id} className={css.detailsNannies}>
                         <div className={css.imgContainer}>
+                            <div className={css.statusWrapper}>
+                                <div className={css.greenDot}></div>
+                            </div>
                             <img className={css.imgNannies} width="96" height="96" src={nanny.avatar_url} alt={nanny.name} />
                         </div>
                         <div>
